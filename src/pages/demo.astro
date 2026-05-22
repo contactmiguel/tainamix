@@ -1,0 +1,347 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NewsletterBar from '../components/NewsletterBar.astro';
+---
+
+<BaseLayout
+  title="Book a Demo"
+  description="Book a free Thermomix® cooking demo with Taina — in-person in the LA area or virtual worldwide. Bilingual support in English and German."
+  activePage="demo"
+>
+
+  <!-- ─── Hero ─────────────────────────────────────────────────────── -->
+  <section class="pt-stack-lg pb-stack-md max-w-container-max mx-auto px-margin-desktop">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">
+
+      <!-- Left: Intro copy -->
+      <div class="space-y-stack-md">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-tertiary/10 text-tertiary rounded-full font-label-md text-label-md">
+          <span class="material-symbols-outlined text-[18px]">language</span>
+          <span>Available in EN + DE</span>
+        </div>
+        <h1 class="font-headline-display text-headline-display text-on-surface leading-tight">
+          Let's Cook Something<br/>
+          <span class="text-primary">Extraordinary Together.</span>
+        </h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+          Experience the magic of Thermomix® firsthand. Whether you're in Los Angeles or joining virtually, I'm here to show you how to transform your kitchen.
+        </p>
+        <div class="flex flex-wrap gap-stack-md pt-2">
+          <!-- Phone -->
+          <a href="tel:+13107175565"
+             class="flex items-center gap-3 p-4 bg-surface-container rounded-xl border border-outline-variant/30 flex-1 min-w-[200px] hover:bg-surface-container-high transition-colors">
+            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-on-primary shadow-sm shrink-0">
+              <span class="material-symbols-outlined">call</span>
+            </div>
+            <div>
+              <p class="text-[10px] font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Call or Text</p>
+              <p class="font-headline-md text-headline-md">(310) 717-5565</p>
+            </div>
+          </a>
+          <!-- WhatsApp -->
+          <a href="https://wa.me/13107175565" target="_blank" rel="noopener noreferrer"
+             class="flex items-center gap-3 p-4 bg-surface-container rounded-xl border border-outline-variant/30 flex-1 min-w-[200px] hover:bg-surface-container-high transition-colors">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white shadow-sm shrink-0"
+                 style="background:#25D366">
+              <span class="material-symbols-outlined">chat</span>
+            </div>
+            <div>
+              <p class="text-[10px] font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">WhatsApp</p>
+              <p class="font-headline-md text-headline-md">Chat with Taina</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Taina photo -->
+      <div class="relative h-[480px] rounded-3xl overflow-hidden recipe-card-shadow group">
+        <img
+          src="/images/taina/emotionheader_2.jpg"
+          alt="Taina in a modern kitchen"
+          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6 glass-effect p-5 rounded-2xl border border-white/20 shadow-lg">
+          <div class="flex items-center gap-3">
+            <div class="bg-primary/10 p-2 rounded-lg">
+              <span class="material-symbols-outlined text-primary">verified</span>
+            </div>
+            <div>
+              <p class="font-headline-md text-headline-md text-on-surface leading-none">Official Consultant</p>
+              <p class="font-body-md text-body-md text-on-surface-variant mt-1">Direct support and local expertise.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── Booking Form + Sidebar ───────────────────────────────────── -->
+  <section class="py-16 max-w-container-max mx-auto px-margin-desktop">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+
+      <!-- Contact Form (2/3 width) -->
+      <div class="lg:col-span-2 bg-surface-container-lowest p-stack-lg rounded-[32px] shadow-sm border border-outline-variant/20">
+        <div class="mb-stack-md">
+          <h2 class="font-headline-lg text-headline-lg text-on-surface">Book Your Session</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant mt-2">
+            Fill out the form and I'll get back to you within 24 hours.
+          </p>
+        </div>
+
+        <form
+          action="https://formspree.io/f/xlgvbyvz"
+          method="POST"
+          class="space-y-stack-md"
+        >
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+            <div class="space-y-2">
+              <label class="font-label-md text-label-md text-on-surface-variant ml-1" for="name">Full Name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                placeholder="Your Name"
+                class="w-full bg-surface-container-low border-none rounded-xl p-4 font-body-md text-on-surface placeholder:text-on-surface-variant/60 focus:ring-2 focus:ring-primary/20 focus:outline-none"
+              />
+            </div>
+            <div class="space-y-2">
+              <label class="font-label-md text-label-md text-on-surface-variant ml-1" for="email">Email Address</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="hello@example.com"
+                class="w-full bg-surface-container-low border-none rounded-xl p-4 font-body-md text-on-surface placeholder:text-on-surface-variant/60 focus:ring-2 focus:ring-primary/20 focus:outline-none"
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+            <div class="space-y-2">
+              <label class="font-label-md text-label-md text-on-surface-variant ml-1" for="interest">Interest</label>
+              <select
+                id="interest"
+                name="interest"
+                required
+                class="w-full bg-surface-container-low border-none rounded-xl p-4 font-body-md text-on-surface focus:ring-2 focus:ring-primary/20 focus:outline-none appearance-none"
+              >
+                <option value="" disabled selected>Select a topic ▾</option>
+                <option value="in-person">In-Person Cooking Party (LA Area)</option>
+                <option value="virtual">Virtual Demo (Worldwide)</option>
+                <option value="support">Support / Question</option>
+                <option value="consultant">Consultant Program</option>
+              </select>
+            </div>
+            <div class="space-y-2">
+              <label class="font-label-md text-label-md text-on-surface-variant ml-1">Language Preference</label>
+              <div class="flex gap-3 p-2 bg-surface-container-low rounded-xl">
+                <label class="flex-1 cursor-pointer">
+                  <input checked name="_lang" type="radio" value="English" class="hidden peer" />
+                  <div class="text-center py-2 rounded-lg peer-checked:bg-white peer-checked:shadow-sm font-label-md text-label-md transition-all">English</div>
+                </label>
+                <label class="flex-1 cursor-pointer">
+                  <input name="_lang" type="radio" value="Deutsch" class="hidden peer" />
+                  <div class="text-center py-2 rounded-lg peer-checked:bg-white peer-checked:shadow-sm font-label-md text-label-md transition-all">Deutsch</div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label class="font-label-md text-label-md text-on-surface-variant ml-1" for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="Tell me about your kitchen goals..."
+              class="w-full bg-surface-container-low border-none rounded-xl p-4 font-body-md text-on-surface placeholder:text-on-surface-variant/60 focus:ring-2 focus:ring-primary/20 focus:outline-none resize-none"
+            ></textarea>
+          </div>
+
+          <!-- Formspree hidden fields -->
+          <input type="hidden" name="_subject" value="New Demo Request from TainaMix.com" />
+          <input type="text" name="_gotcha" class="hidden" />
+
+          <button
+            type="submit"
+            class="w-full md:w-auto px-12 py-4 bg-primary text-on-primary rounded-xl font-headline-md shadow-lg hover:brightness-110 active:scale-95 transition-all"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="space-y-gutter">
+
+        <!-- What to Expect -->
+        <div class="bg-primary text-on-primary p-stack-lg rounded-[32px] shadow-lg relative overflow-hidden">
+          <div class="absolute -right-4 -top-4 w-24 h-24 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+          <h3 class="font-headline-md text-headline-md mb-stack-md relative z-10">What to Expect</h3>
+          <ul class="space-y-stack-md relative z-10">
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined shrink-0">restaurant</span>
+              <p class="font-body-md text-body-md">Personalized menu based on your diet and preferences.</p>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined shrink-0">bolt</span>
+              <p class="font-body-md text-body-md">Live demo of the TM7's core functions and capabilities.</p>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined shrink-0">quiz</span>
+              <p class="font-body-md text-body-md">Q&amp;A session — no question is too small.</p>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined shrink-0">translate</span>
+              <p class="font-body-md text-body-md">Available in English or German.</p>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Newsletter mini -->
+        <div class="bg-surface-container-high p-stack-lg rounded-[32px] border border-outline-variant/30">
+          <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Join the Community</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-stack-md">
+            Weekly recipes and Thermomix® tips delivered to your inbox.
+          </p>
+          <NewsletterBar compact={true} />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── How It Works ─────────────────────────────────────────────── -->
+  <section class="py-16 bg-surface-container-low">
+    <div class="max-w-container-max mx-auto px-margin-desktop">
+      <div class="text-center mb-stack-lg">
+        <h2 class="font-headline-lg text-headline-lg">How It Works</h2>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mt-stack-sm">
+          Choose the experience that fits your lifestyle. Both options are designed to be fun, educational, and delicious.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+
+        <!-- In-Person -->
+        <div class="group bg-white p-8 rounded-[32px] shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/10 relative overflow-hidden">
+          <div class="absolute top-0 right-0 p-8 text-primary/10 group-hover:text-primary/20 transition-colors pointer-events-none">
+            <span class="material-symbols-outlined text-[120px]">home</span>
+          </div>
+          <div class="relative z-10">
+            <div class="w-14 h-14 bg-surface-container-high rounded-2xl flex items-center justify-center text-primary mb-6">
+              <span class="material-symbols-outlined text-[32px]">diversity_3</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md mb-4">In-Person Cooking Party</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant mb-6">
+              If you're in the greater Los Angeles area, I'll bring the Thermomix® to you! Invite a few friends for a "Cooking Party" where we prepare a full meal together. It's the best way to see the speed and versatility in a real kitchen environment.
+            </p>
+            <div class="flex items-center gap-2 text-primary font-label-md text-label-md">
+              <span class="material-symbols-outlined text-[20px]">location_on</span>
+              <span>Service area: LA, OC, and Ventura County</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Virtual -->
+        <div class="group bg-white p-8 rounded-[32px] shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/10 relative overflow-hidden">
+          <div class="absolute top-0 right-0 p-8 text-secondary/10 group-hover:text-secondary/20 transition-colors pointer-events-none">
+            <span class="material-symbols-outlined text-[120px]">videocam</span>
+          </div>
+          <div class="relative z-10">
+            <div class="w-14 h-14 bg-surface-container-high rounded-2xl flex items-center justify-center text-secondary mb-6">
+              <span class="material-symbols-outlined text-[32px]">laptop_chromebook</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md mb-4">Virtual Digital Demo</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant mb-6">
+              Perfect for those outside of California or with busy schedules. We connect via Zoom or WhatsApp video for a tailored 45-minute walkthrough. I'll focus on the specific features that matter most to you.
+            </p>
+            <div class="flex items-center gap-2 text-secondary font-label-md text-label-md">
+              <span class="material-symbols-outlined text-[20px]">public</span>
+              <span>Available worldwide across all timezones</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FAQ + Testimonial ────────────────────────────────────────── -->
+  <section class="py-16 max-w-container-max mx-auto px-margin-desktop">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-start">
+
+      <!-- FAQ Accordion -->
+      <div>
+        <h2 class="font-headline-lg text-headline-lg mb-stack-md">Common Questions</h2>
+        <div class="space-y-stack-sm">
+          {[
+            {
+              q: "Is there a cost for the demo?",
+              a: "Not at all! The demo is my investment in your culinary journey. There is absolutely no obligation to buy; my goal is to show you the value it adds to your lifestyle.",
+              open: true,
+            },
+            {
+              q: "How long does a cooking party take?",
+              a: "Usually between 90 minutes to 2 hours. We cook 3–4 dishes together, enjoy the food, and I'll walk through the features and Cookidoo® platform.",
+              open: false,
+            },
+            {
+              q: "Can we cook in German?",
+              a: "Ja, natürlich! I am a bilingual consultant and happy to conduct the entire demo or cooking party in German if you prefer.",
+              open: false,
+            },
+          ].map(faq => (
+            <details class="group bg-white rounded-2xl border border-outline-variant/20 overflow-hidden" open={faq.open}>
+              <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                <span class="font-headline-md text-[18px] text-on-surface">{faq.q}</span>
+                <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0 ml-4">expand_more</span>
+              </summary>
+              <div class="px-6 pb-6 font-body-md text-body-md text-on-surface-variant">
+                {faq.a}
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="relative">
+        <div class="bg-white p-stack-lg rounded-[32px] shadow-lg border border-outline-variant/10">
+          <div class="flex items-center gap-4 mb-stack-md">
+            <div class="w-16 h-16 rounded-full overflow-hidden bg-secondary-container shrink-0">
+              <img
+                src="/images/taina/thumb_21537245.jpg"
+                alt="Sarah M."
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div>
+              <h4 class="font-headline-md text-[18px] text-on-surface">Sarah M.</h4>
+              <p class="font-label-md text-label-md text-primary">Santa Monica, CA</p>
+            </div>
+          </div>
+          <p class="font-body-lg text-body-lg italic text-on-surface leading-relaxed">
+            "Taina's cooking party was the highlight of our week! My friends and I were skeptical about 'one machine doing everything,' but by the time we finished our fresh risotto and sorbet, we were all sold. Taina's energy is infectious and she makes everything so easy."
+          </p>
+          <div class="mt-6 pt-6 border-t border-outline-variant/20 flex gap-1">
+            {[1,2,3,4,5].map(() => (
+              <span class="material-symbols-outlined text-primary" style="font-variation-settings:'FILL' 1">star</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Floating badge -->
+        <div class="absolute -bottom-6 -right-6 md:-right-10 bg-tertiary text-on-tertiary p-6 rounded-3xl shadow-xl floating-accent max-w-[200px]">
+          <p class="font-headline-md text-headline-md">150+</p>
+          <p class="font-label-md text-label-md opacity-90">Happy Families in SoCal this year</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>

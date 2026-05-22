@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const storeUrl = "https://shop.thermomix.com/consultant/100096";
+
+const accessories = [
+  {
+    img: "thumb_21708993.jpg",
+    name: "Blade Cover & Peeler",
+    desc: "Essential protection and convenient peeling in one accessory.",
+    price: "$45.00",
+  },
+  {
+    img: "thumb_21708994.jpg",
+    name: "German Collection",
+    desc: "Authentic European recipes curated by Taina.",
+    price: "$39.00",
+  },
+  {
+    img: "thumb_21708995.jpg",
+    name: "Asian Street Food",
+    desc: "Hardcover guide to bold, Eastern flavors.",
+    price: "$35.00",
+  },
+  {
+    img: "thumb_21708996.jpg",
+    name: "Varoma Accessory Set",
+    desc: "Expand your multi-level steaming capabilities.",
+    price: "$65.00",
+  },
+];
+---
+
+<BaseLayout
+  title="Shop"
+  description="Get your Thermomix® TM7 through Taina — your official consultant in Los Angeles. Free shipping, financing available, and personal support included."
+  activePage="shop"
+>
+
+  <!-- ─── Hero ─────────────────────────────────────────────────────── -->
+  <section class="relative overflow-hidden rounded-3xl mx-margin-desktop mt-stack-lg mb-stack-lg"
+           style="background: linear-gradient(135deg, #006e26 0%, #32b74f 100%);">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <img
+        src="/images/taina/emotionheader.jpg"
+        alt=""
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="relative z-10 p-12 md:p-24 flex flex-col items-center text-center text-white max-w-2xl mx-auto">
+      <span class="inline-block bg-white/20 backdrop-blur-md px-4 py-1 rounded-full font-label-md text-label-md font-semibold mb-stack-md uppercase tracking-wider">
+        Official Consultant Store
+      </span>
+      <h1 class="font-headline-display text-headline-display mb-stack-md">Elevate Your Kitchen Today</h1>
+      <p class="font-body-lg text-body-lg opacity-90 mb-stack-lg">
+        Get your Thermomix® TM7 now and enjoy <strong class="underline decoration-2">FREE SHIPPING</strong> nationwide.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-stack-md justify-center">
+        <a href={storeUrl} target="_blank" rel="noopener noreferrer"
+           class="bg-white text-primary px-8 py-4 rounded-xl font-bold shadow-xl hover:scale-105 transition-transform flex items-center gap-2">
+          <span class="material-symbols-outlined">shopping_cart</span>
+          Visit Taina's Official Store
+        </a>
+        <a href="#payment"
+           class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-colors">
+          View Financing Options
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Product + Payment Bento ──────────────────────────────────── -->
+  <div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-stack-lg">
+
+    <!-- TM7 Product Card -->
+    <div class="lg:col-span-8 bg-white rounded-3xl recipe-card-shadow overflow-hidden p-8 flex flex-col md:flex-row gap-stack-lg border border-outline-variant/30">
+      <div class="w-full md:w-1/2 rounded-2xl overflow-hidden">
+        <img
+          src="/images/taina/cache_14638705.jpg"
+          alt="Thermomix TM7"
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <div class="w-full md:w-1/2 flex flex-col justify-center">
+        <h2 class="font-headline-lg text-headline-lg mb-stack-md">Thermomix® TM7</h2>
+        <ul class="space-y-3 mb-stack-lg">
+          {[
+            "28-in-1 kitchen appliance versatility",
+            "Guided cooking with Cookidoo® integration",
+            "Precise temperature & weighing sensors",
+            "6.8″ high-resolution touchscreen",
+            "2-year manufacturer warranty",
+          ].map(feat => (
+            <li class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-primary" style="font-variation-settings:'FILL' 1">check_circle</span>
+              <span class="font-body-md text-body-md text-on-surface-variant">{feat}</span>
+            </li>
+          ))}
+        </ul>
+        <div class="bg-surface-container-low p-4 rounded-xl mb-stack-md">
+          <p class="font-label-md text-label-md text-on-surface-variant mb-1">Price</p>
+          <p class="font-headline-md text-headline-md text-primary">$1,699.00</p>
+        </div>
+        <a href="https://www.thermomix.com/products/thermomix%C2%AE-tm7%E2%84%A2"
+           target="_blank" rel="noopener noreferrer"
+           class="w-full py-4 bg-primary text-on-primary rounded-xl font-bold shadow-lg hover:brightness-110 transition-all active:scale-[0.98] text-center block">
+          Add to Cart
+        </a>
+      </div>
+    </div>
+
+    <!-- Payment + Perks Sidebar -->
+    <div class="lg:col-span-4 flex flex-col gap-gutter" id="payment">
+
+      <div class="bg-white p-8 rounded-3xl recipe-card-shadow flex-1 border border-outline-variant/30">
+        <h3 class="font-headline-md text-headline-md mb-stack-md">Payment Options</h3>
+        <div class="space-y-stack-md">
+          <div class="flex items-center gap-4 p-4 border border-outline-variant rounded-xl">
+            <span class="material-symbols-outlined text-secondary">payments</span>
+            <div>
+              <p class="font-label-md text-label-md text-on-surface">Financing Available</p>
+              <p class="text-xs text-on-surface-variant">As low as $59/mo via Affirm</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 p-4 border border-outline-variant rounded-xl">
+            <span class="material-symbols-outlined text-secondary">credit_card</span>
+            <div>
+              <p class="font-label-md text-label-md text-on-surface">Secure Checkout</p>
+              <p class="text-xs text-on-surface-variant">Credit Card &amp; PayPal supported</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 p-4 border border-outline-variant rounded-xl">
+            <span class="material-symbols-outlined text-secondary">local_shipping</span>
+            <div>
+              <p class="font-label-md text-label-md text-on-surface">Free Shipping</p>
+              <p class="text-xs text-on-surface-variant">Nationwide — a $59 value</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/5 p-8 rounded-3xl border border-primary/20 flex flex-col justify-center">
+        <h3 class="font-label-md text-label-md text-primary uppercase tracking-wider mb-2">Consultant Perks</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-4">
+          When you shop through Taina, you get personal onboarding, exclusive recipe access, and direct WhatsApp support.
+        </p>
+        <a href="/demo" class="text-primary font-bold flex items-center gap-1 hover:underline font-label-md text-label-md">
+          Book a Free Demo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ─── Accessories Grid ─────────────────────────────────────────── -->
+  <section class="py-16 max-w-container-max mx-auto px-margin-desktop">
+    <div class="flex justify-between items-end mb-stack-lg">
+      <div>
+        <h2 class="font-headline-lg text-headline-lg">Accessories &amp; Cookbooks</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant">Complete your culinary studio with specialized tools.</p>
+      </div>
+      <a href={storeUrl} target="_blank" rel="noopener noreferrer"
+         class="hidden md:flex items-center gap-1 text-primary font-label-md text-label-md hover:underline">
+        View Full Store <span class="material-symbols-outlined">open_in_new</span>
+      </a>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+      {accessories.map(acc => (
+        <div class="group bg-white rounded-2xl overflow-hidden recipe-card-shadow hover:-translate-y-2 transition-transform duration-300">
+          <div class="h-48 overflow-hidden">
+            <img
+              src={`/images/taina/${acc.img}`}
+              alt={acc.name}
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+          </div>
+          <div class="p-6">
+            <h4 class="font-headline-md text-headline-md text-[18px] mb-1">{acc.name}</h4>
+            <p class="font-body-md text-body-md text-on-surface-variant text-sm mb-3">{acc.desc}</p>
+            <p class="font-label-md text-label-md text-primary mb-4">{acc.price}</p>
+            <a href={storeUrl} target="_blank" rel="noopener noreferrer"
+               class="block w-full py-2 border-2 border-primary text-primary rounded-lg font-label-md text-label-md text-center hover:bg-primary hover:text-on-primary transition-all">
+              View in Store
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ─── Consultant CTA ────────────────────────────────────────────── -->
+  <section class="max-w-container-max mx-auto px-margin-desktop py-16">
+    <div class="border-2 border-dashed border-outline-variant rounded-3xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
+      <div class="p-12 flex flex-col justify-center items-start">
+        <div class="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mb-stack-md text-primary">
+          <span class="material-symbols-outlined text-4xl">handshake</span>
+        </div>
+        <h2 class="font-headline-lg text-headline-lg mb-stack-sm">Join the TainaMix Family</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant max-w-xl mb-stack-lg">
+          Love the Thermomix®? Become a consultant and earn yours for free while building a business around your passion for cooking.
+        </p>
+        <a href="/demo"
+           class="font-label-md text-label-md text-primary border-2 border-primary px-8 py-3 rounded-full hover:bg-primary hover:text-on-primary transition-all font-bold">
+          Learn About the Consultant Program
+        </a>
+      </div>
+      <div class="h-64 md:h-auto overflow-hidden">
+        <img
+          src="/images/taina/cache_15951390.png"
+          alt="Join the TainaMix consultant family"
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

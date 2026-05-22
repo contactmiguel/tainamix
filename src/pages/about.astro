@@ -1,0 +1,220 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About Taina"
+  description="Meet Taina — your 'Germerican' Thermomix® cooking coach in Los Angeles. Bilingual support in English and German."
+  activePage="about"
+>
+
+  <!-- ─── Hero ─────────────────────────────────────────────────────── -->
+  <section class="relative overflow-hidden pt-stack-lg md:pt-24 pb-stack-lg">
+    <div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-stack-lg items-center">
+      <div class="order-2 md:order-1">
+        <span class="bg-primary/10 text-primary px-4 py-1 rounded-full font-label-md text-label-md mb-stack-md inline-block">
+          Hallo &amp; Welcome!
+        </span>
+        <h1 class="font-headline-display text-headline-display text-on-background mb-stack-md">
+          Meet Taina: Your <span class="text-primary">"Germerican"</span> Cooking Coach
+        </h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg max-w-lg">
+          I turned my "cooking dyslexia" into a culinary superpower. Now, I help busy families in LA and beyond master the art of precise, joyful cooking.
+        </p>
+        <div class="flex flex-wrap gap-stack-md">
+          <a href="/demo" class="bg-primary text-on-primary px-8 py-3 rounded-lg font-label-md text-label-md shadow-sm hover:brightness-110 transition-all">
+            Book a Demo
+          </a>
+          <div class="flex items-center gap-stack-sm px-4 py-3 rounded-lg border-2 border-tertiary text-tertiary font-label-md text-label-md">
+            <span class="material-symbols-outlined">language</span>
+            DE / EN Support
+          </div>
+        </div>
+      </div>
+      <div class="order-1 md:order-2 relative">
+        <div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl">
+          <img
+            src="/images/taina/thumbnail2.jpg"
+            alt="Taina in her LA kitchen with her dog"
+            class="w-full h-full object-cover object-top"
+          />
+        </div>
+        <div class="absolute -bottom-6 -left-6 glass-effect p-stack-md rounded-xl shadow-lg border border-outline-variant max-w-[200px]">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="material-symbols-outlined text-primary">verified</span>
+            <span class="font-label-md text-label-md">Official Advisor</span>
+          </div>
+          <p class="text-xs text-on-surface-variant italic">"Personalized support in every language I speak!"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Bento Story Grid ──────────────────────────────────────────── -->
+  <section class="py-24 bg-surface-container-low">
+    <div class="max-w-container-max mx-auto px-margin-desktop">
+      <div class="mb-stack-lg text-center">
+        <h2 class="font-headline-lg text-headline-lg mb-stack-sm">From Kitchen Chaos to Culinary Hero</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant">The story behind the "Germerican" lifestyle</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+        <!-- Large: The Journey -->
+        <div class="md:col-span-2 bg-white p-stack-lg rounded-2xl recipe-card-shadow flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-stack-md">
+              <span class="material-symbols-outlined text-primary">auto_stories</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md mb-stack-md">The "Cooking Dyslexic" Legend</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant mb-stack-md leading-relaxed">
+              Growing up in Germany, I was the one who could burn water. I loved food, but recipes felt like puzzles I couldn't solve. When I moved to Los Angeles, the fast-paced lifestyle made it even harder to eat well.
+            </p>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Everything changed when I discovered the Thermomix®. It wasn't just a machine; it was the translator I needed. I realized that precision doesn't kill creativity—it sets it free.
+            </p>
+          </div>
+          <div class="mt-stack-lg pt-stack-md border-t border-outline-variant flex gap-stack-lg">
+            <div>
+              <p class="font-headline-md text-headline-md text-primary">10+</p>
+              <p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Years Experience</p>
+            </div>
+            <div>
+              <p class="font-headline-md text-headline-md text-primary">500+</p>
+              <p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Happy Students</p>
+            </div>
+          </div>
+        </div>
+        <!-- Small: LA Vibes -->
+        <div class="bg-primary text-on-primary p-stack-lg rounded-2xl shadow-lg relative overflow-hidden">
+          <span class="material-symbols-outlined absolute -right-4 -bottom-4 text-9xl opacity-10">beach_access</span>
+          <h3 class="font-headline-md text-headline-md mb-stack-md">LA Vibes</h3>
+          <p class="font-body-md text-body-md mb-stack-lg">
+            Blending European precision with the vibrant, health-conscious spirit of Southern California.
+          </p>
+          <div class="space-y-stack-sm">
+            {["Farmers Market Driven", "Fresh Ingredients", "Global Flavors"].map(item => (
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm">check_circle</span>
+                <span class="font-label-md text-label-md">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <!-- Small: Bilingual -->
+        <div class="bg-secondary-container text-on-secondary-container p-stack-lg rounded-2xl">
+          <h3 class="font-headline-md text-headline-md mb-stack-md">Bilingual Support</h3>
+          <p class="font-body-md text-body-md mb-stack-md italic">"In der Küche sprechen wir alle die gleiche Sprache."</p>
+          <p class="font-body-md text-body-md">
+            Whether you're looking for authentic German recipes or modern American favorites, I've got you covered in both languages.
+          </p>
+        </div>
+        <!-- Large: Philosophy -->
+        <div class="md:col-span-2 bg-white p-stack-lg rounded-2xl recipe-card-shadow grid md:grid-cols-2 gap-stack-lg items-center">
+          <div>
+            <h3 class="font-headline-md text-headline-md mb-stack-md">My Philosophy</h3>
+            <ul class="space-y-stack-md">
+              <li class="flex gap-stack-sm">
+                <span class="material-symbols-outlined text-primary shrink-0">favorite</span>
+                <div>
+                  <p class="font-label-md text-label-md text-on-background">Personal Connection</p>
+                  <p class="text-sm text-on-surface-variant">I'm not just a salesperson; I'm your lifelong culinary partner.</p>
+                </div>
+              </li>
+              <li class="flex gap-stack-sm">
+                <span class="material-symbols-outlined text-primary shrink-0">support_agent</span>
+                <div>
+                  <p class="font-label-md text-label-md text-on-background">Availability</p>
+                  <p class="text-sm text-on-surface-variant">Questions at 7 PM on a Tuesday? I'm just a WhatsApp away.</p>
+                </div>
+              </li>
+              <li class="flex gap-stack-sm">
+                <span class="material-symbols-outlined text-primary shrink-0">lightbulb</span>
+                <div>
+                  <p class="font-label-md text-label-md text-on-background">Empowerment</p>
+                  <p class="text-sm text-on-surface-variant">My goal is to make you the hero of your own kitchen.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="rounded-xl overflow-hidden h-full min-h-[200px]">
+            <img
+              src="/images/taina/thumbnail1.jpg"
+              alt="Taina with her Thermomix"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Press & Media ─────────────────────────────────────────────── -->
+  <section class="py-16">
+    <div class="max-w-container-max mx-auto px-margin-desktop">
+      <p class="text-center font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-stack-lg">Featured &amp; Trusted By</p>
+      <div class="flex flex-wrap justify-center items-center gap-12 grayscale opacity-60 mb-16">
+        <div class="text-2xl font-bold font-display italic">Cuisine Today</div>
+        <div class="text-2xl font-extrabold font-display">LA KITCHENS</div>
+        <div class="text-2xl font-bold font-display tracking-tighter">GourmetLink</div>
+        <div class="text-2xl font-bold font-display">EUROFOOD</div>
+      </div>
+      <!-- Press pull quotes -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+        <div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/30">
+          <p class="text-xs text-primary font-bold uppercase tracking-widest mb-3">Cuisine Today</p>
+          <p class="font-body-md italic text-on-surface-variant leading-relaxed">"Taina brings a rare combination of culinary expertise and genuine warmth to every demo. Her bilingual approach is a gift for LA's German-speaking community."</p>
+        </div>
+        <div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/30">
+          <p class="text-xs text-primary font-bold uppercase tracking-widest mb-3">LA Kitchens</p>
+          <p class="font-body-md italic text-on-surface-variant leading-relaxed">"If you're looking for someone who actually knows how to transform a busy household kitchen, Taina is the consultant you've been searching for."</p>
+        </div>
+        <div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/30">
+          <p class="text-xs text-primary font-bold uppercase tracking-widest mb-3">GourmetLink</p>
+          <p class="font-body-md italic text-on-surface-variant leading-relaxed">"From her signature Cooking Parties to her online tutorials, Taina has built a community around precision cooking that is both inspiring and delicious."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Join the Community ────────────────────────────────────────── -->
+  <section class="py-24 bg-surface-bright border-y border-outline-variant">
+    <div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-stack-lg items-center">
+      <div>
+        <h2 class="font-headline-lg text-headline-lg mb-stack-md">Join the Community</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg">
+          I share daily tips, quick recipes, and behind-the-scenes life in LA on social media. Connect with me and let's cook together!
+        </p>
+        <div class="flex gap-stack-md">
+          <a href="https://www.instagram.com/tainamix" target="_blank" rel="noopener noreferrer"
+             class="w-12 h-12 rounded-full border border-outline flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all">
+            <span class="material-symbols-outlined">photo_camera</span>
+          </a>
+          <a href="https://www.youtube.com/@tainamix" target="_blank" rel="noopener noreferrer"
+             class="w-12 h-12 rounded-full border border-outline flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all">
+            <span class="material-symbols-outlined">play_circle</span>
+          </a>
+          <a href="https://www.facebook.com/groups/tainamix/" target="_blank" rel="noopener noreferrer"
+             class="w-12 h-12 rounded-full border border-outline flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all">
+            <span class="material-symbols-outlined">share</span>
+          </a>
+        </div>
+      </div>
+      <div>
+        <img src="/images/taina/thumbnail3.jpg" alt="Browsing Cookidoo recipes on the Thermomix screen" class="rounded-2xl aspect-square object-cover recipe-card-shadow" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Final CTA ─────────────────────────────────────────────────── -->
+  <section class="py-24 text-center">
+    <div class="max-w-xl mx-auto px-margin-mobile">
+      <h2 class="font-headline-lg text-headline-lg mb-stack-md">Ready to start your own journey?</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg">
+        Book a personalized demo and discover how we can transform your kitchen experience together.
+      </p>
+      <a href="/demo" class="bg-primary text-on-primary px-10 py-4 rounded-full font-label-md text-label-md shadow-lg hover:shadow-xl active:scale-95 transition-all inline-block">
+        Book a Demo Today
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>

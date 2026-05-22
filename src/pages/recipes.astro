@@ -1,0 +1,383 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const videos = [
+  { num: 1,  type: "youtube", id: "o4xr6xRMcc4", title: "Welcome to the Community",        desc: "Your starting point — meet the TainaMix community.", url: "https://youtu.be/o4xr6xRMcc4", color: "bg-primary" },
+  { num: 2,  type: "youtube", id: "3wb8TRr3z0Y", title: "Intro to Cookidoo®",               desc: "10-minute walkthrough of the recipe platform. Free for 6 months with TM6.", url: "https://youtu.be/3wb8TRr3z0Y", color: "bg-tertiary" },
+  { num: 3,  type: "youtube", id: "HtbmRt1jWHs", title: "Set Your Preferences",             desc: "Customize Cookidoo® to get recipes from multiple countries and languages.", url: "https://youtu.be/HtbmRt1jWHs", color: "bg-secondary" },
+  { num: 4,  type: "youtube", id: "38JpyIFeoag", title: "Unboxing Your Thermomix®",         desc: "Follow along for setup — connect to WiFi, log into Cookidoo®, and you're ready.", url: "https://youtu.be/38JpyIFeoag", color: "bg-primary" },
+  { num: 5,  type: "youtube", id: "jv08iKa6VPM", title: "Your First Dish: Tomato Soup",    desc: "Gather your ingredients and cook along for your very first Thermomix® meal.", url: "https://youtu.be/jv08iKa6VPM", color: "bg-tertiary" },
+  { num: 6,  type: "vimeo",   id: "397976804",   title: "Berry Dream",                      desc: "A simple, fresh dessert to wow your family.", url: "https://vimeo.com/397976804", fallback: "/images/recipes/Berry_Dream.jpg", color: "bg-secondary" },
+  { num: 7,  type: "vimeo",   id: "397968287",   title: "Focaccia with Sea Salt",           desc: "Warm, crusty homemade bread — easier than you think.", url: "https://vimeo.com/397968287", fallback: "/images/recipes/Focaccia_with_Sea_Salt_Flakes.jpg", color: "bg-primary" },
+  { num: 8,  type: "vimeo",   id: "397781473",   title: "Tinga de Pollo",                   desc: "A bold, smoky Mexican chicken dish made effortlessly.", url: "https://vimeo.com/397781473", fallback: "/images/recipes/Quick_Thai_Chicken_Curry.jpg", color: "bg-tertiary" },
+  { num: 9,  type: "vimeo",   id: "397969662",   title: "Asian Rice with Vegetables",       desc: "A light, flavorful one-pot meal for any night.", url: "https://vimeo.com/397969662", fallback: "/images/recipes/Risotto_with_Parmesan_Cheese.jpg", color: "bg-secondary" },
+  { num: 10, type: "youtube", id: "HwoXSxniCsw", title: "Shopping List & Delivery",         desc: "Use Cookidoo®'s built-in shopping list and grocery delivery option.", url: "https://youtu.be/HwoXSxniCsw", color: "bg-primary" },
+  { num: 11, type: "youtube", id: "SQFz0wIXobQ", title: "Find & Save Cookbooks",            desc: "How to discover and save cookbooks directly in Cookidoo®.", url: "https://youtu.be/SQFz0wIXobQ", color: "bg-tertiary" },
+  { num: 12, type: "youtube", id: "1eXBLHVEVA0", title: "Recipes for Large Families",       desc: "Tips for scaling and finding family-sized recipes in Cookidoo®.", url: "https://youtu.be/1eXBLHVEVA0", color: "bg-secondary" },
+  { num: 13, type: "youtube", id: "fpXYT3m6mqw", title: "Advanced Recipe Search",           desc: "More tricks to find your perfect recipe faster.", url: "https://youtu.be/fpXYT3m6mqw", color: "bg-primary" },
+  { num: 14, type: "youtube", id: "XBvRlSylpRA", title: "Create Your Own Recipes",          desc: "Save and build your personal recipes inside Cookidoo®.", url: "https://youtu.be/XBvRlSylpRA", color: "bg-tertiary" },
+  { num: 15, type: "youtube", id: "5n8KN58znlI", title: "Translate Recipes",                desc: "How to translate any recipe into your preferred language.", url: "https://youtu.be/5n8KN58znlI", color: "bg-secondary" },
+  { num: 16, type: "youtube", id: "o6WER6EVm8E", title: "Share Recipe Collections",         desc: "Share your curated Cookidoo® collections with friends and family.", url: "https://youtu.be/o6WER6EVm8E", color: "bg-primary" },
+  { num: 17, type: "youtube", id: "Sai0U-8RIBI", title: "Renew Your Subscription",          desc: "Step-by-step guide to renewing Cookidoo® (desktop only).", url: "https://youtu.be/Sai0U-8RIBI", color: "bg-tertiary" },
+  { num: 18, type: "youtube", id: "wR9AtyFPAEI", title: "Adjust Serving Portions",          desc: "Easily scale any recipe up or down in Cookidoo®.", url: "https://youtu.be/wR9AtyFPAEI", color: "bg-secondary" },
+];
+---
+
+<BaseLayout
+  title="Recipes & Resources"
+  description="Taina's curated Thermomix® recipes, video playlists, Cookidoo® picks, and culinary resources. Start your journey here."
+  activePage="recipes"
+>
+
+  <!-- ─── Hero ─────────────────────────────────────────────────────── -->
+  <section class="pt-stack-lg pb-stack-md px-margin-desktop max-w-container-max mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">
+      <div class="space-y-stack-md">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-tertiary/10 text-tertiary rounded-full">
+          <span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+          <span class="font-label-md text-label-md uppercase tracking-widest">Everything you need</span>
+        </div>
+        <h1 class="font-headline-display text-headline-display text-on-background">
+          Recipes &amp; Resources
+        </h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+          From hand-picked recipes to essential video guides, this is your ultimate toolkit for life with the Thermomix®.
+        </p>
+        <div class="flex flex-wrap gap-stack-md pt-2">
+          <a href="#cookidoo" class="flex items-center gap-2 px-6 py-3 bg-primary/10 text-primary rounded-xl font-label-md text-label-md hover:bg-primary/20 transition-colors">
+            <span class="material-symbols-outlined">restaurant_menu</span>
+            Browse Cookidoo® Picks
+          </a>
+          <a href="#videos" class="flex items-center gap-2 px-6 py-3 border-2 border-secondary text-secondary rounded-xl font-label-md text-label-md hover:bg-secondary-container transition-colors">
+            <span class="material-symbols-outlined">play_circle</span>
+            New Owner Playlist
+          </a>
+        </div>
+      </div>
+      <div class="relative rounded-[2rem] overflow-hidden aspect-[4/3] lg:aspect-square recipe-card-shadow">
+        <img
+          src="/images/recipes/Quinoa_Salad_with_Strawberry_Vinaigrette.jpg"
+          alt="Featured recipe"
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6 glass-effect p-5 rounded-2xl">
+          <p class="font-label-md text-label-md text-primary mb-1">Featured This Month</p>
+          <h3 class="font-headline-md text-headline-md text-on-background">Quinoa Salad with Strawberry Vinaigrette</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Video Carousel ───────────────────────────────────────────── -->
+  <section class="py-16 bg-surface-container-low" id="videos">
+    <div class="max-w-container-max mx-auto px-margin-desktop">
+      <div class="flex items-center justify-between mb-stack-lg">
+        <div>
+          <h2 class="font-headline-lg text-headline-lg">Get Cooking: Video Resources</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant mt-1">18 step-by-step videos for every stage of your Thermomix® journey</p>
+        </div>
+        <div class="hidden md:flex gap-3">
+          <button
+            id="carousel-prev"
+            aria-label="Scroll left"
+            class="w-12 h-12 rounded-full border-2 border-outline-variant flex items-center justify-center hover:bg-surface-container transition-colors">
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          <button
+            id="carousel-next"
+            aria-label="Scroll right"
+            class="w-12 h-12 rounded-full border-2 border-outline-variant flex items-center justify-center hover:bg-surface-container transition-colors">
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Scroll-snap carousel -->
+      <div
+        id="video-carousel"
+        class="flex gap-gutter overflow-x-auto pb-4 no-scrollbar snap-x snap-mandatory"
+        style="scroll-behavior: smooth;"
+      >
+        {videos.map((v) => (
+          <div class="min-w-[300px] md:min-w-[320px] snap-start bg-white rounded-2xl overflow-hidden recipe-card-shadow flex flex-col">
+            <!-- Thumbnail -->
+            <div class="relative aspect-video bg-surface-container overflow-hidden group">
+              <img
+                src={v.type === "youtube"
+                  ? `https://img.youtube.com/vi/${v.id}/hqdefault.jpg`
+                  : `https://vumbnail.com/${v.id}.jpg`}
+                alt={v.title}
+                class="w-full h-full object-cover"
+                onerror={v.type === "vimeo"
+                  ? `this.src='${v.fallback}'`
+                  : `this.src='/images/recipes/Quinoa_Salad_with_Strawberry_Vinaigrette.jpg'`}
+                loading="lazy"
+              />
+              <div class="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors">
+                <div class={`w-14 h-14 rounded-full ${v.color} text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
+                  <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">play_arrow</span>
+                </div>
+              </div>
+              <span class="absolute top-3 left-3 w-8 h-8 flex items-center justify-center bg-black/60 backdrop-blur-md text-white rounded-full text-[11px] font-bold">
+                {v.num}
+              </span>
+              {v.type === "vimeo" && (
+                <span class="absolute top-3 right-3 px-2 py-0.5 bg-[#1AB7EA]/80 backdrop-blur-md text-white rounded-full text-[10px] font-bold">
+                  Vimeo
+                </span>
+              )}
+            </div>
+            <!-- Card body -->
+            <div class="p-6 flex flex-col flex-1 justify-between">
+              <div>
+                <h4 class="font-headline-md text-headline-md text-on-background mb-2">{v.title}</h4>
+                <p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4">{v.desc}</p>
+              </div>
+              <a
+                href={v.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-primary font-label-md text-label-md inline-flex items-center gap-1 hover:underline"
+              >
+                Watch Video
+                <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    const carousel = document.getElementById('video-carousel');
+    document.getElementById('carousel-prev')?.addEventListener('click', () => {
+      carousel.scrollBy({ left: -340, behavior: 'smooth' });
+    });
+    document.getElementById('carousel-next')?.addEventListener('click', () => {
+      carousel.scrollBy({ left: 340, behavior: 'smooth' });
+    });
+  </script>
+
+  <!-- ─── Cookidoo Picks ────────────────────────────────────────────── -->
+  <section class="py-16" id="cookidoo">
+    <div class="max-w-container-max mx-auto px-margin-desktop">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-stack-lg">
+        <div>
+          <h2 class="font-headline-lg text-headline-lg">Taina's Cookidoo® Picks</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant">Hand-selected favorites for everyday culinary magic.</p>
+        </div>
+        <div class="flex gap-2">
+          <span class="px-4 py-2 bg-primary text-on-primary rounded-full font-label-md text-label-md">All</span>
+          <span class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-md text-label-md cursor-pointer hover:bg-surface-container transition-colors">Quick</span>
+          <span class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-md text-label-md cursor-pointer hover:bg-surface-container transition-colors">Healthy</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+
+        <!-- Large Feature Card -->
+        <div class="md:col-span-2 md:row-span-2 group relative rounded-2xl overflow-hidden recipe-card-shadow min-h-[400px]">
+          <img
+            src="/images/recipes/Quinoa_Salad_with_Strawberry_Vinaigrette.jpg"
+            alt="Quinoa Salad with Strawberry Vinaigrette"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+            <div class="flex gap-2 mb-3">
+              <span class="px-3 py-1 bg-primary text-on-primary rounded-full text-[10px] uppercase font-bold tracking-widest">Featured</span>
+              <span class="px-3 py-1 bg-white/20 backdrop-blur-md text-white rounded-full text-[10px] uppercase font-bold tracking-widest">Healthy</span>
+            </div>
+            <h3 class="font-headline-lg text-white mb-2">Quinoa Salad with Strawberry Vinaigrette</h3>
+            <p class="text-white/80 font-body-md text-sm mb-4">Fresh, vibrant, and packed with nutrients — a Taina signature.</p>
+            <a href="https://cookidoo.us" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 text-white font-label-md text-label-md hover:underline">
+              View on Cookidoo® <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Morning Energy Card -->
+        <div class="bg-white rounded-2xl overflow-hidden recipe-card-shadow group">
+          <div class="h-40 overflow-hidden">
+            <img
+              src="/images/recipes/Smoothie.jpg"
+              alt="Morning Smoothie"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="p-5">
+            <div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center text-secondary mb-3">
+              <span class="material-symbols-outlined">breakfast_dining</span>
+            </div>
+            <h4 class="font-headline-md text-headline-md mb-1">Morning Energy</h4>
+            <p class="font-body-md text-body-md text-on-surface-variant text-sm">Smoothies and grain bowls to start the day right.</p>
+          </div>
+        </div>
+
+        <!-- 30-Min Dinners Card -->
+        <div class="bg-white rounded-2xl overflow-hidden recipe-card-shadow group">
+          <div class="h-40 overflow-hidden">
+            <img
+              src="/images/recipes/Quick_Thai_Chicken_Curry.jpg"
+              alt="Quick Thai Chicken Curry"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="p-5">
+            <div class="w-10 h-10 rounded-xl bg-tertiary/10 flex items-center justify-center text-tertiary mb-3">
+              <span class="material-symbols-outlined">timer</span>
+            </div>
+            <h4 class="font-headline-md text-headline-md mb-1">30-Min Dinners</h4>
+            <p class="font-body-md text-body-md text-on-surface-variant text-sm">Fast, delicious, and chef-quality meals.</p>
+          </div>
+        </div>
+
+        <!-- Traveling Thermomix Banner -->
+        <div class="md:col-span-2 bg-surface-container-low rounded-2xl p-6 flex flex-col md:flex-row items-center gap-6 border border-outline-variant/30">
+          <div class="flex-1">
+            <h4 class="font-headline-md text-headline-md mb-2">The Traveling Thermomix®</h4>
+            <p class="font-body-md text-body-md text-on-surface-variant mb-3">
+              Taina's guide to cooking on the road — from camper vans to holiday rentals.
+            </p>
+            <button class="text-primary font-label-md text-label-md flex items-center gap-2 hover:underline">
+              Download Travel PDF
+              <span class="material-symbols-outlined">download</span>
+            </button>
+          </div>
+          <div class="w-28 h-28 shrink-0 bg-white rounded-2xl shadow-sm rotate-3 border-4 border-white overflow-hidden">
+            <img
+              src="/images/recipes/Ratatouille.jpg"
+              alt="Traveling with Thermomix"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Recipe Grid Preview ──────────────────────────────────────── -->
+  <section class="py-16 bg-surface-container-low">
+    <div class="max-w-container-max mx-auto px-margin-desktop">
+      <div class="flex justify-between items-end mb-stack-lg">
+        <div>
+          <h2 class="font-headline-lg text-headline-lg">More from the Kitchen</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant">A sample of what's possible with your Thermomix®</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+        {[
+          { img: "Focaccia_with_Sea_Salt_Flakes.jpg", name: "Focaccia with Sea Salt", time: "45m", level: "Easy" },
+          { img: "Creamy_Tomato_Soup.jpg", name: "Velvety Tomato Bisque", time: "20m", level: "Beginner" },
+          { img: "Spaghetti_Carbonara.jpg", name: "Spaghetti Carbonara", time: "30m", level: "Intermediate" },
+          { img: "Chocolate_Mousse.jpg", name: "Chocolate Mousse", time: "15m", level: "Easy" },
+          { img: "Hummus.png", name: "Classic Hummus", time: "10m", level: "Beginner" },
+          { img: "Banana_Bread.jpg", name: "Banana Bread", time: "60m", level: "Easy" },
+          { img: "Risotto_with_Parmesan_Cheese.jpg", name: "Parmesan Risotto", time: "35m", level: "Intermediate" },
+          { img: "Lasagna.jpg", name: "Classic Lasagna", time: "75m", level: "Intermediate" },
+        ].map(recipe => (
+          <div class="group bg-white rounded-2xl overflow-hidden recipe-card-shadow hover:-translate-y-1 transition-transform duration-300">
+            <div class="h-40 overflow-hidden">
+              <img
+                src={`/images/recipes/${recipe.img}`}
+                alt={recipe.name}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-4">
+              <h5 class="font-label-md text-label-md text-on-background mb-2 leading-snug">{recipe.name}</h5>
+              <div class="flex gap-3 text-on-surface-variant text-xs">
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[14px]">timer</span> {recipe.time}
+                </span>
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[14px]">equalizer</span> {recipe.level}
+                </span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-stack-lg">
+        <a href="https://cookidoo.us" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-xl font-label-md text-label-md shadow-sm hover:brightness-110 transition-all">
+          Browse All Recipes on Cookidoo®
+          <span class="material-symbols-outlined">open_in_new</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── More to Watch ────────────────────────────────────────────── -->
+  <section class="py-16 bg-surface-container-low">
+    <div class="max-w-container-max mx-auto px-margin-desktop">
+      <div class="flex items-center justify-between mb-stack-lg">
+        <div>
+          <h2 class="font-headline-lg text-headline-lg">More to Watch</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant mt-1">Curated playlists — from pro chef techniques to quick weeknight hacks</p>
+        </div>
+        <div class="hidden md:flex gap-3">
+          <button id="playlist-prev" aria-label="Scroll left"
+            class="w-12 h-12 rounded-full border-2 border-outline-variant flex items-center justify-center hover:bg-surface-container transition-colors">
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          <button id="playlist-next" aria-label="Scroll right"
+            class="w-12 h-12 rounded-full border-2 border-outline-variant flex items-center justify-center hover:bg-surface-container transition-colors">
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="playlist-carousel" class="flex gap-gutter overflow-x-auto pb-4 no-scrollbar snap-x snap-mandatory" style="scroll-behavior: smooth;">
+        {[
+          { thumbId: "LtT8BVsfpGU", title: "Pro Chefs & Thermomix®",      desc: "See how professional chefs use the Thermomix® in their kitchens.", url: "https://youtube.com/playlist?list=PLSN5HT4ulT6m24e7wgdsEwb_l1EuPprUI5", tag: "Inspiration" },
+          { thumbId: "QBCnLbm4TS4", title: "5-Day Challenge",              desc: "Daily challenges to build your Thermomix® confidence, fast.",      url: "https://youtube.com/playlist?list=PLSN5HT4ulT6k7su_3R_JTarZ88MXkH1z1", tag: "Beginner" },
+          { thumbId: "0KkT2PEbh48", title: "Learn More About Thermomix®", desc: "Curious about what it can really do? Start here.",                 url: "https://youtube.com/playlist?list=PLSN5HT4ulT6lr_wABe1djGbjoH2tIR5K2", tag: "Overview" },
+          { thumbId: "4rEZB843eho", title: "Quick Recipes",                desc: "Delicious meals ready in 30 minutes or less.",                     url: "https://youtube.com/playlist?list=PLSN5HT4ulT6n89lAQX240QDn7hzJTS2s2", tag: "Quick Wins" },
+          { thumbId: "OBoiZP4I6lo", title: "Quick Hacks",                  desc: "Time-saving tricks every Thermomix® owner should know.",           url: "https://youtube.com/playlist?list=PLSN5HT4ulT6kAWAU4s2MsRRKCuQLcZfK6", tag: "Tips & Tricks" },
+          { thumbId: "di2Y1-27ZAw", title: "Live Cooking Sessions",         desc: "Recorded Zoom cooking sessions with the community.",               url: "https://youtube.com/playlist?list=PLSN5HT4ulT6lXMPvFfqbra_9q5wHO788-", tag: "Community" },
+        ].map(pl => (
+          <div class="min-w-[300px] md:min-w-[320px] snap-start bg-white rounded-2xl overflow-hidden recipe-card-shadow flex flex-col">
+            <div class="relative aspect-video bg-surface-container overflow-hidden group">
+              <img
+                src={`https://img.youtube.com/vi/${pl.thumbId}/hqdefault.jpg`}
+                alt={pl.title}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors">
+                <div class="w-14 h-14 rounded-full bg-primary text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">play_arrow</span>
+                </div>
+              </div>
+              <span class="absolute top-3 left-3 px-3 py-1 bg-black/60 backdrop-blur-md text-white rounded-full text-[10px] font-bold uppercase tracking-wider">
+                {pl.tag}
+              </span>
+            </div>
+            <div class="p-6 flex flex-col flex-1 justify-between">
+              <div>
+                <h4 class="font-headline-md text-headline-md text-on-background mb-2">{pl.title}</h4>
+                <p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4">{pl.desc}</p>
+              </div>
+              <a href={pl.url} target="_blank" rel="noopener noreferrer"
+                 class="text-primary font-label-md text-label-md inline-flex items-center gap-1 hover:underline">
+                Watch Playlist
+                <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    const pc = document.getElementById('playlist-carousel');
+    document.getElementById('playlist-prev')?.addEventListener('click', () => pc.scrollBy({ left: -340, behavior: 'smooth' }));
+    document.getElementById('playlist-next')?.addEventListener('click', () => pc.scrollBy({ left:  340, behavior: 'smooth' }));
+  </script>
+
+</BaseLayout>

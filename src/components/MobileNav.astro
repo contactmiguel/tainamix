@@ -1,0 +1,44 @@
+---
+interface Props {
+  activePage?: string;
+}
+const { activePage = '' } = Astro.props;
+---
+
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-container-lowest border-t border-outline-variant/30 px-margin-mobile py-3 flex justify-between items-center z-50 shadow-lg">
+
+  <a href="/" class={`flex flex-col items-center gap-1 ${activePage === 'home' ? 'text-primary' : 'text-on-surface-variant'}`}>
+    <span class="material-symbols-outlined" style={activePage === 'home' ? "font-variation-settings:'FILL' 1" : ""}>home</span>
+    <span class="text-[10px] font-label-md">Home</span>
+  </a>
+
+  <a href="/recipes" class={`flex flex-col items-center gap-1 ${activePage === 'recipes' ? 'text-primary' : 'text-on-surface-variant'}`}>
+    <span class="material-symbols-outlined" style={activePage === 'recipes' ? "font-variation-settings:'FILL' 1" : ""}>restaurant</span>
+    <span class="text-[10px] font-label-md">Recipes</span>
+  </a>
+
+  <!-- Centre CTA -->
+  <div class="relative -top-8">
+    <a
+      href="/demo"
+      class="bg-primary p-4 rounded-full text-on-primary shadow-xl ring-8 ring-surface-bright flex items-center justify-center active:scale-95 transition-transform"
+      aria-label="Book a Demo"
+    >
+      <span class="material-symbols-outlined">calendar_today</span>
+    </a>
+  </div>
+
+  <a href="/thermomix" class={`flex flex-col items-center gap-1 ${activePage === 'thermomix' ? 'text-primary' : 'text-on-surface-variant'}`}>
+    <span class="material-symbols-outlined" style={activePage === 'thermomix' ? "font-variation-settings:'FILL' 1" : ""}>kitchen</span>
+    <span class="text-[10px] font-label-md">TM6</span>
+  </a>
+
+  <a href="/about" class={`flex flex-col items-center gap-1 ${activePage === 'about' ? 'text-primary' : 'text-on-surface-variant'}`}>
+    <span class="material-symbols-outlined" style={activePage === 'about' ? "font-variation-settings:'FILL' 1" : ""}>person</span>
+    <span class="text-[10px] font-label-md">About</span>
+  </a>
+
+</nav>
+
+<!-- Spacer so content doesn't sit behind the fixed bar on mobile -->
+<div class="md:hidden h-20"></div>

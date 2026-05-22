@@ -1,0 +1,289 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="The Thermomix® TM7"
+  description="Discover the Thermomix® TM7 — the all-in-one kitchen appliance replacing 20+ tools. Guided by Taina, your bilingual consultant in Los Angeles."
+  activePage="thermomix"
+>
+
+  <!-- ─── Hero ─────────────────────────────────────────────────────── -->
+  <section class="relative py-24 overflow-hidden bg-surface-bright">
+    <div class="max-w-container-max mx-auto px-margin-desktop">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">
+
+        <!-- Left: Copy -->
+        <div class="space-y-stack-lg">
+          <span class="inline-flex items-center px-4 py-1 rounded-full bg-primary/10 text-primary font-label-md text-label-md">
+            Introducing the TM7
+          </span>
+          <h1 class="font-headline-display text-headline-display text-on-surface">
+            One Appliance.<br/><span class="text-primary">Infinite</span> Possibilities.
+          </h1>
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+            The Thermomix® TM7 replaces over 20 kitchen appliances in one compact, elegant machine. From sous-vide to high-temperature sautéing, it's the smartest kitchen assistant you'll ever own.
+          </p>
+          <div class="flex flex-wrap gap-stack-md">
+            <a href="https://shop.thermomix.com/consultant/100096" target="_blank" rel="noopener noreferrer"
+               class="px-8 py-4 rounded-xl bg-primary text-on-primary font-headline-md flex items-center gap-2 shadow-sm hover:brightness-110 transition-all">
+              Get Your Thermomix®
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+            <a href="/demo"
+               class="px-8 py-4 rounded-xl border-2 border-secondary text-secondary font-headline-md flex items-center gap-2 hover:bg-secondary-container transition-all">
+              <span class="material-symbols-outlined">calendar_today</span>
+              Book a Demo
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Product image -->
+        <div class="relative">
+          <div class="absolute -inset-8 bg-primary/5 blur-3xl rounded-full pointer-events-none"></div>
+          <div class="relative rounded-3xl overflow-hidden recipe-card-shadow aspect-square">
+            <img
+              src="/images/taina/thumbnail5.jpg"
+              alt="Thermomix TM7 on kitchen counter"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="absolute bottom-8 right-8 glass-effect p-5 rounded-2xl shadow-lg border border-outline-variant">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-on-primary">
+                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span>
+              </div>
+              <div>
+                <p class="font-headline-md text-headline-md text-primary">20+</p>
+                <p class="font-label-md text-label-md text-on-surface-variant">Appliances in One</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 20-in-1 Bento Grid ───────────────────────────────────────── -->
+  <section class="py-24 bg-surface-container-low">
+    <div class="max-w-container-max mx-auto px-margin-desktop">
+      <div class="text-center mb-16">
+        <h2 class="font-headline-lg text-headline-lg mb-stack-sm">The 20-in-One Powerhouse</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">
+          Why clutter your counters with individual tools when one precision-engineered machine can do it all?
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter md:h-[600px]">
+
+        <!-- Large: Touchscreen -->
+        <div class="md:col-span-2 md:row-span-2 bg-white rounded-3xl p-8 recipe-card-shadow flex flex-col justify-between overflow-hidden relative group">
+          <div class="relative z-10">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">touch_app</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md mb-4">Stunning 10″ Display</h3>
+            <p class="font-body-md text-on-surface-variant">
+              The TM7™ features a sleek, high-resolution 10-inch display designed to bring clarity and confidence to every step. With intuitive controls and intelligent automation, it precisely adjusts time, temperature, and speed while visually guiding you through each recipe. Beautiful to look at. Powerful to cook with.
+            </p>
+          </div>
+          <div class="mt-8 rounded-2xl overflow-hidden h-48">
+            <img
+              src="/images/taina/thumbnail6.jpg"
+              alt="Thermomix touchscreen showing a recipe"
+              class="w-full h-full object-cover object-bottom group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+        </div>
+
+        <!-- Medium: Precision Cooking -->
+        <div class="md:col-span-2 bg-white rounded-3xl p-8 recipe-card-shadow flex items-center gap-stack-lg">
+          <div class="flex-1">
+            <h3 class="font-headline-md text-headline-md mb-2">Precision Cooking</h3>
+            <p class="font-label-md text-label-md text-on-surface-variant">
+              Temperature control from 37°C to 160°C. Perfect for delicate chocolate tempering to high-heat searing.
+            </p>
+          </div>
+          <div class="w-20 h-20 rounded-2xl bg-secondary-container flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-4xl text-secondary">thermostat</span>
+          </div>
+        </div>
+
+        <!-- Small: Varoma -->
+        <div class="bg-white rounded-3xl p-8 recipe-card-shadow">
+          <div class="w-12 h-12 rounded-xl bg-tertiary/10 text-tertiary flex items-center justify-center mb-5">
+            <span class="material-symbols-outlined">restaurant</span>
+          </div>
+          <h4 class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-2">Varoma®</h4>
+          <p class="text-sm text-on-surface-variant">Steam healthy, tiered meals for the whole family simultaneously.</p>
+        </div>
+
+        <!-- Small: Quiet Motor -->
+        <div class="bg-white rounded-3xl p-8 recipe-card-shadow">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-5">
+            <span class="material-symbols-outlined">volume_off</span>
+          </div>
+          <h4 class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-2">Quiet Motor</h4>
+          <p class="text-sm text-on-surface-variant">Industry-leading reluctance motor — powerful yet remarkably quiet.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── What's in the Box ────────────────────────────────────────── -->
+  <section class="py-24">
+    <div class="max-w-container-max mx-auto px-margin-desktop">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-stack-lg items-center">
+
+        <div class="lg:col-span-5 space-y-stack-md">
+          <h2 class="font-headline-lg text-headline-lg">Unboxing Perfection</h2>
+          <p class="font-body-md text-on-surface-variant">
+            Everything you need to transform your kitchen into a professional culinary studio comes right in the box.
+          </p>
+          <ul class="space-y-2">
+            {[
+              "Thermomix® TM7 Main Unit",
+              "Stainless Steel Mixing Bowl & Blade",
+              "Varoma® Steaming Attachment",
+              "Measuring Cup & Spatula",
+              '"Simple Ideas" Cookbook',
+            ].map((item, i) => (
+              <li class="flex items-center gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors group">
+                <span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors text-sm font-bold shrink-0">
+                  {i + 1}
+                </span>
+                <span class="font-label-md text-label-md">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="lg:col-span-7 flex justify-center">
+          <div class="relative rounded-3xl overflow-hidden recipe-card-shadow w-full max-w-lg aspect-square">
+            <img
+              src="/images/taina/thumbnail7.jpg"
+              alt="Taina with her Thermomix in the kitchen"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Cookidoo Integration ─────────────────────────────────────── -->
+  <section class="py-24 bg-inverse-surface overflow-hidden relative">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-primary opacity-20 blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
+    <div class="max-w-container-max mx-auto px-margin-desktop">
+      <div class="flex flex-col md:flex-row items-center gap-stack-lg relative z-10">
+
+        <div class="flex-1 space-y-stack-md text-white">
+          <span class="inline-block px-4 py-1 rounded-full bg-primary/20 border border-primary text-primary font-label-md text-label-md">
+            The Secret Ingredient
+          </span>
+          <h2 class="font-headline-display text-headline-display">Cookidoo® Integration</h2>
+          <p class="font-body-lg text-body-lg opacity-80 max-w-lg">
+            Access over 100,000 guided recipes directly on your screen. Plan your week, create shopping lists, and send them straight to your Thermomix®.
+          </p>
+          <div class="grid grid-cols-2 gap-stack-lg pt-4">
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary shrink-0">sync</span>
+              <div>
+                <h4 class="font-label-md text-label-md font-bold">Seamless Sync</h4>
+                <p class="text-sm opacity-70">App to appliance in seconds.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary shrink-0">auto_awesome</span>
+              <div>
+                <h4 class="font-label-md text-label-md font-bold">AI Suggestions</h4>
+                <p class="text-sm opacity-70">Tailored to your taste.</p>
+              </div>
+            </div>
+          </div>
+          <a href="https://cookidoo.us" target="_blank" rel="noopener noreferrer"
+             class="mt-6 inline-block px-10 py-4 rounded-xl bg-white text-inverse-surface font-bold shadow-lg hover:scale-105 transition-all">
+            Explore Recipes
+          </a>
+        </div>
+
+        <div class="flex-1 relative max-w-sm mx-auto w-full">
+          <div class="rounded-3xl overflow-hidden border-8 border-inverse-surface shadow-2xl">
+            <img
+              src="/images/taina/cache_20431418.jpg"
+              alt="Cookidoo app on phone"
+              class="w-full h-auto"
+            />
+          </div>
+          <div class="absolute -bottom-4 -left-4 bg-white p-4 rounded-2xl shadow-xl">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary">check_circle</span>
+              <span class="text-on-surface font-label-md text-label-md">80k+ Recipes</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Embedded YouTube Video ───────────────────────────────────── -->
+  <section class="py-24 bg-surface-container-low">
+    <div class="max-w-container-max mx-auto px-margin-desktop">
+      <div class="text-center mb-stack-lg">
+        <h2 class="font-headline-lg text-headline-lg mb-stack-sm">See It in Action</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant">Why we love our Thermomix® in just two minutes</p>
+      </div>
+      <div class="max-w-3xl mx-auto rounded-3xl overflow-hidden recipe-card-shadow">
+        <div class="relative aspect-video bg-black">
+          <iframe
+            src="https://www.youtube.com/embed/rxm0Sv0ckUM"
+            title="Why we love our Thermomix®"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            class="w-full h-full absolute inset-0"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Final CTA ─────────────────────────────────────────────────── -->
+  <section class="py-24 text-center px-margin-desktop">
+    <div class="max-w-2xl mx-auto space-y-stack-lg">
+      <h2 class="font-headline-display text-headline-display text-on-surface">Ready to upgrade your kitchen?</h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant">
+        Join thousands of happy owners and start your culinary journey today. Book a personal demo or order your TM7 now.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-stack-lg pt-4">
+        <a href="https://shop.thermomix.com/consultant/100096" target="_blank" rel="noopener noreferrer"
+           class="w-full sm:w-auto px-12 py-5 rounded-2xl bg-primary text-on-primary font-headline-md shadow-lg hover:brightness-110 transition-all flex items-center justify-center gap-3">
+          Get Your Thermomix®
+          <span class="material-symbols-outlined">shopping_cart</span>
+        </a>
+        <a href="/demo"
+           class="w-full sm:w-auto px-12 py-5 rounded-2xl border-2 border-primary text-primary font-headline-md hover:bg-primary/5 transition-all text-center">
+          Book a Demo
+        </a>
+      </div>
+      <div class="pt-8 flex flex-wrap justify-center gap-10 opacity-60">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined">verified_user</span>
+          <span class="font-label-md text-label-md">2 Year Warranty</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined">local_shipping</span>
+          <span class="font-label-md text-label-md">Free Shipping</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined">credit_card</span>
+          <span class="font-label-md text-label-md">0% Financing Available</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

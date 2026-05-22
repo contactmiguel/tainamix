@@ -1,0 +1,230 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NewsletterBar from '../components/NewsletterBar.astro';
+---
+
+<BaseLayout
+  title="Home"
+  description="Taina is your bilingual Thermomix® consultant in Los Angeles. Cooking parties, virtual demos, and personalized support in English & German."
+  activePage="home"
+>
+
+  <!-- ─── Hero ─────────────────────────────────────────────────────── -->
+  <section class="relative min-h-[50vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/images/taina/emotionheader.jpg"
+        alt="Taina cooking in her LA kitchen"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-black/50"></div>
+    </div>
+    <div class="relative z-10 px-margin-desktop max-w-container-max mx-auto w-full pt-12 pb-16 md:pt-16 md:pb-16">
+      <div class="max-w-2xl text-white">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full mb-stack-md">
+          <span class="font-label-md text-[12px] uppercase tracking-wider">English + Deutsch</span>
+        </div>
+        <h1 class="font-headline-display text-headline-display mb-stack-md leading-tight text-white">
+          Culinary Magic,<br/><span class="text-primary-fixed">Mastered Simply.</span>
+        </h1>
+        <p class="font-body-lg text-body-lg mb-stack-lg text-white/90 max-w-[500px]">
+          Join Taina in transforming your kitchen with the Thermomix®. Experience precision cooking that bridges cultures and simplifies every meal.
+        </p>
+        <div class="flex flex-wrap gap-stack-md">
+          <a href="/demo" class="bg-primary px-8 py-4 rounded-xl text-on-primary font-headline-md flex items-center gap-2 hover:brightness-110 transition-all shadow-lg">
+            Book a Demo <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+          <a href="/recipes" class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-xl font-headline-md hover:bg-white/20 transition-colors">
+            See Recipes
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Press Logo Strip ──────────────────────────────────────────── -->
+  <section class="py-8 bg-surface-container-lowest border-b border-outline-variant/20">
+    <div class="max-w-container-max mx-auto px-margin-desktop">
+      <p class="text-center font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-stack-md">As Seen In</p>
+      <div class="flex flex-wrap justify-center items-center gap-10 grayscale opacity-50">
+        <div class="text-2xl font-bold font-display italic">Cuisine Today</div>
+        <div class="text-2xl font-extrabold font-display">LA KITCHENS</div>
+        <div class="text-2xl font-bold font-display tracking-tighter">GourmetLink</div>
+        <div class="text-2xl font-bold font-display">EUROFOOD</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Stats Bar ─────────────────────────────────────────────────── -->
+  <section class="bg-surface-container-low border-b border-outline-variant/20">
+    <div class="max-w-container-max mx-auto px-margin-desktop py-stack-lg">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-stack-lg text-center">
+        <div>
+          <p class="font-headline-lg text-headline-lg text-primary mb-1">10+</p>
+          <p class="font-label-md text-label-md text-on-surface-variant">Years Experience</p>
+        </div>
+        <div>
+          <p class="font-headline-lg text-headline-lg text-primary mb-1">1k+</p>
+          <p class="font-label-md text-label-md text-on-surface-variant">Recipes Shared</p>
+        </div>
+        <div>
+          <p class="font-headline-lg text-headline-lg text-primary mb-1">98%</p>
+          <p class="font-label-md text-label-md text-on-surface-variant">Happy Students</p>
+        </div>
+        <div>
+          <p class="font-headline-lg text-headline-lg text-primary mb-1">EN/DE</p>
+          <p class="font-label-md text-label-md text-on-surface-variant">Bilingual Support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 3-Step Process ────────────────────────────────────────────── -->
+  <section class="py-stack-lg px-margin-desktop max-w-container-max mx-auto">
+    <div class="text-center mb-stack-lg">
+      <h2 class="font-headline-lg text-headline-lg mb-stack-sm">Your Journey to Culinary Excellence</h2>
+      <p class="text-on-surface-variant max-w-2xl mx-auto">Simple, structured, and fun. Here is how we get you started with the ultimate kitchen companion.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+      <div class="p-8 rounded-3xl bg-surface-container-lowest border border-outline-variant/30 text-center recipe-card-shadow">
+        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+          <span class="material-symbols-outlined text-primary text-3xl">event_available</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md mb-4">1. Book a Demo</h3>
+        <p class="text-on-surface-variant">See the Thermomix® in action. Choose a virtual or in-person session tailored to your needs.</p>
+      </div>
+      <div class="p-8 rounded-3xl bg-surface-container-lowest border border-outline-variant/30 text-center recipe-card-shadow">
+        <div class="w-16 h-16 bg-tertiary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+          <span class="material-symbols-outlined text-tertiary text-3xl">restaurant_menu</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md mb-4">2. Personalized Training</h3>
+        <p class="text-on-surface-variant">Once you have your device, I'll walk you through every feature to ensure you're confident from day one.</p>
+      </div>
+      <div class="p-8 rounded-3xl bg-surface-container-lowest border border-outline-variant/30 text-center recipe-card-shadow">
+        <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+          <span class="material-symbols-outlined text-secondary text-3xl">celebration</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md mb-4">3. Join the Community</h3>
+        <p class="text-on-surface-variant">Access exclusive recipes, monthly cooking parties, and a support network of fellow food lovers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Recipe Teaser ─────────────────────────────────────────────── -->
+  <section class="py-stack-lg px-margin-desktop bg-surface-bright">
+    <div class="max-w-container-max mx-auto">
+      <div class="flex justify-between items-end mb-stack-lg">
+        <div>
+          <h2 class="font-headline-lg text-headline-lg">Fresh from the Kitchen</h2>
+          <p class="text-on-surface-variant">Curated recipes for the modern Thermomix® user.</p>
+        </div>
+        <a href="/recipes" class="hidden md:flex items-center gap-2 text-primary font-label-md group">
+          Explore all recipes <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+        </a>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-gutter">
+        {[
+          { img: "Quinoa_Salad_with_Strawberry_Vinaigrette.jpg", name: "Quinoa Salad with Strawberry Vinaigrette", time: "20m", level: "Beginner" },
+          { img: "Focaccia_with_Sea_Salt_Flakes.jpg",            name: "Focaccia with Sea Salt",                   time: "45m", level: "Easy" },
+          { img: "Creamy_Tomato_Soup.jpg",                       name: "Velvety Tomato Bisque",                    time: "20m", level: "Beginner" },
+          { img: "Spaghetti_Carbonara.jpg",                      name: "Spaghetti Carbonara",                      time: "30m", level: "Intermediate" },
+          { img: "Quick_Thai_Chicken_Curry.jpg",                 name: "Quick Thai Chicken Curry",                 time: "25m", level: "Easy" },
+          { img: "Chocolate_Mousse.jpg",                         name: "Chocolate Mousse",                         time: "15m", level: "Easy" },
+        ].map(recipe => (
+          <a href="/recipes" class="group bg-surface-container-lowest rounded-3xl overflow-hidden recipe-card-shadow hover:-translate-y-1 transition-transform duration-300 flex flex-col">
+            <div class="h-48 overflow-hidden">
+              <img
+                src={`/images/recipes/${recipe.img}`}
+                alt={recipe.name}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <h4 class="font-headline-md text-headline-md mb-2 leading-snug">{recipe.name}</h4>
+              <div class="flex gap-3 text-on-surface-variant text-xs mt-auto pt-3">
+                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">timer</span> {recipe.time}</span>
+                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">equalizer</span> {recipe.level}</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Testimonials ──────────────────────────────────────────────── -->
+  <section class="py-stack-lg px-margin-desktop bg-surface-container-low">
+    <div class="max-w-container-max mx-auto">
+      <h2 class="font-headline-lg text-headline-lg text-center mb-stack-lg">What the Community Says</h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+        {[
+          { quote: "Taina's demo changed my life! I went from burnt toast to three-course meals in just a week.", name: "Sarah M.", title: "LA Resident", color: "bg-secondary-container" },
+          { quote: "Endlich jemand, der Thermomix auf Deutsch in LA erklärt. Taina ist einfach fantastisch!", name: "Lukas K.", title: "German Expat", color: "bg-primary/10" },
+          { quote: "The cooking parties are so fun. It's not just about cooking, it's about the community Taina builds.", name: "Elena R.", title: "Food Blogger", color: "bg-tertiary/10" },
+          { quote: "Professional, knowledgeable, and always available for questions. Best consultant in California.", name: "James D.", title: "Happy Client", color: "bg-secondary-fixed-dim" },
+        ].map(t => (
+          <div class="bg-surface p-8 rounded-3xl shadow-sm border border-outline-variant/10">
+            <div class="flex text-primary mb-4">
+              {[1,2,3,4,5].map(() => <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span>)}
+            </div>
+            <p class="font-body-md italic mb-6">"{t.quote}"</p>
+            <div class="flex items-center gap-4">
+              <div class={`w-10 h-10 rounded-full ${t.color}`}></div>
+              <div>
+                <p class="font-label-md mb-0">{t.name}</p>
+                <p class="text-[12px] text-on-surface-variant">{t.title}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── About Snippet ─────────────────────────────────────────────── -->
+  <section class="py-stack-lg px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-stack-lg items-center">
+    <div class="relative">
+      <img
+        src="/images/taina/emotionheader_1.jpg"
+        alt="Taina in her LA kitchen"
+        class="rounded-3xl shadow-lg w-full h-[450px] object-cover"
+      />
+      <div class="absolute -top-4 -right-4 bg-primary text-on-primary p-6 rounded-2xl hidden md:block">
+        <span class="font-headline-md text-headline-md block">10+</span>
+        <span class="font-label-md text-label-md">Years Expertise</span>
+      </div>
+    </div>
+    <div>
+      <h2 class="font-headline-lg text-headline-lg mb-stack-md">From "Cooking Dyslexic" to Kitchen Hero</h2>
+      <p class="text-on-surface-variant mb-stack-md">Hi, I'm Taina! As a "Germerican" living in LA, I struggled to find the balance between my traditional roots and a fast-paced lifestyle. The Thermomix® changed everything for me, turning kitchen dread into pure joy.</p>
+      <p class="text-on-surface-variant mb-stack-lg">My mission is to help you reclaim your time and health without sacrificing the flavors you love. Let's make kitchen magic together.</p>
+      <a href="/about" class="inline-flex items-center gap-2 text-primary font-headline-md hover:underline">
+        Read my full story <span class="material-symbols-outlined">arrow_outward</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ─── Cooking Party CTA ─────────────────────────────────────────── -->
+  <section class="mx-margin-desktop my-stack-lg rounded-[2.5rem] bg-inverse-surface text-inverse-on-surface overflow-hidden relative">
+    <div class="absolute inset-0 opacity-10 pointer-events-none" style="background:radial-gradient(circle at top right, #006e26, transparent)"></div>
+    <div class="relative z-10 p-12 md:p-20 text-center flex flex-col items-center">
+      <h2 class="font-headline-display text-headline-display mb-stack-md max-w-3xl">Ready for a Cooking Party?</h2>
+      <p class="text-surface-variant font-body-lg max-w-2xl mb-stack-lg">Host a session, invite friends, and get exclusive rewards. Whether virtual or in-person, let's create something delicious.</p>
+      <a href="/demo" class="bg-primary px-12 py-5 rounded-2xl font-headline-md text-on-primary hover:brightness-110 transition-all active:scale-95">
+        Schedule Your Party
+      </a>
+    </div>
+  </section>
+
+  <!-- ─── Newsletter ────────────────────────────────────────────────── -->
+  <section class="py-stack-lg px-margin-desktop bg-surface-container-low">
+    <div class="max-w-container-max mx-auto flex flex-col md:flex-row items-center justify-between gap-stack-lg">
+      <div class="max-w-md">
+        <h3 class="font-headline-md text-headline-md mb-2">The Culinary Digest</h3>
+        <p class="text-on-surface-variant">Get weekly recipes, Thermomix® tips, and exclusive event invites straight to your inbox.</p>
+      </div>
+      <NewsletterBar />
+    </div>
+  </section>
+
+</BaseLayout>

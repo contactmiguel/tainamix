@@ -1,0 +1,83 @@
+---
+import NewsletterBar from './NewsletterBar.astro';
+---
+
+<footer class="bg-surface-container-low border-t border-outline-variant">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-stack-lg max-w-container-max mx-auto">
+
+    <!-- Col 1: Brand -->
+    <div class="col-span-1">
+      <a href="/" class="block mb-stack-sm">
+        <img src="/images/logo.png" alt="TainaMix" class="h-10 w-auto" />
+      </a>
+      <p class="font-body-md text-body-md text-on-surface-variant">
+        Culinary precision for the modern kitchen. Your bilingual Thermomix® consultant in LA.
+      </p>
+    </div>
+
+    <!-- Col 2: Explore -->
+    <div>
+      <p class="font-label-md text-label-md text-primary font-semibold mb-stack-md uppercase tracking-wider">Explore</p>
+      <ul class="space-y-stack-sm">
+        <li><a href="/"           class="font-body-md text-body-md text-on-secondary-container hover:text-primary hover:underline transition-all">Home</a></li>
+        <li><a href="/about"      class="font-body-md text-body-md text-on-secondary-container hover:text-primary hover:underline transition-all">About Me</a></li>
+        <li><a href="/thermomix"  class="font-body-md text-body-md text-on-secondary-container hover:text-primary hover:underline transition-all">The Thermomix®</a></li>
+        <li><a href="/recipes"    class="font-body-md text-body-md text-on-secondary-container hover:text-primary hover:underline transition-all">Recipes & Resources</a></li>
+        <li><a href="/shop"       class="font-body-md text-body-md text-on-secondary-container hover:text-primary hover:underline transition-all">Shop</a></li>
+        <li><a href="/demo"       class="font-body-md text-body-md text-on-secondary-container hover:text-primary hover:underline transition-all">Book a Demo</a></li>
+      </ul>
+    </div>
+
+    <!-- Col 3: Connect -->
+    <div>
+      <p class="font-label-md text-label-md text-primary font-semibold mb-stack-md uppercase tracking-wider">Connect</p>
+      <ul class="space-y-stack-sm">
+        <li>
+          <a href="https://www.instagram.com/tainamix" target="_blank" rel="noopener noreferrer"
+             class="font-body-md text-body-md text-on-secondary-container hover:text-primary hover:underline transition-all flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">photo_camera</span> Instagram
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/@tainamix" target="_blank" rel="noopener noreferrer"
+             class="font-body-md text-body-md text-on-secondary-container hover:text-primary hover:underline transition-all flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">play_circle</span> YouTube
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/groups/tainamix/" target="_blank" rel="noopener noreferrer"
+             class="font-body-md text-body-md text-on-secondary-container hover:text-primary hover:underline transition-all flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">share</span> Facebook
+          </a>
+        </li>
+        <li>
+          <a href="https://wa.me/13107175565" target="_blank" rel="noopener noreferrer"
+             class="font-body-md text-body-md text-on-secondary-container hover:text-primary hover:underline transition-all flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">chat</span> WhatsApp
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Col 4: Newsletter -->
+    <div>
+      <p class="font-label-md text-label-md text-primary font-semibold mb-stack-md uppercase tracking-wider">Newsletter</p>
+      <p class="font-body-md text-body-md text-on-surface-variant mb-stack-md text-sm">
+        Weekly recipes, Thermomix® tips, and exclusive event invites.
+      </p>
+      <NewsletterBar compact={true} />
+    </div>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="max-w-container-max mx-auto px-margin-desktop py-stack-md border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-2">
+    <p class="font-label-md text-label-md text-on-surface-variant text-sm">
+      © 2025 TainaMix. All rights reserved. · LA Independent Consultant · Taina F.
+    </p>
+    <div class="flex gap-stack-md">
+      <a href="/privacy" class="font-label-md text-label-md text-on-surface-variant hover:text-primary text-sm transition-colors">Privacy Policy</a>
+      <a href="/demo"    class="font-label-md text-label-md text-on-surface-variant hover:text-primary text-sm transition-colors">Contact Us</a>
+    </div>
+  </div>
+</footer>

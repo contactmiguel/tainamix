@@ -1,0 +1,41 @@
+---
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+---
+
+<!-- PLACEHOLDER: Replace action URL with Mailchimp embed action when Taina provides it -->
+<form
+  action="#mailchimp-placeholder"
+  method="POST"
+  class={compact ? 'flex flex-col gap-2' : 'flex gap-2 w-full max-w-lg'}
+  onsubmit="handleNewsletterSubmit(event)"
+>
+  <input
+    type="email"
+    name="EMAIL"
+    required
+    placeholder="Your email address"
+    class={`${compact ? 'w-full' : 'flex-1'} bg-surface border-none rounded-xl px-6 py-3 font-body-md text-on-surface placeholder:text-on-surface-variant/60 focus:ring-2 focus:ring-primary/20 focus:outline-none`}
+  />
+  <button
+    type="submit"
+    class={`${compact ? 'w-full' : ''} bg-primary text-on-primary px-6 py-3 rounded-xl font-label-md text-label-md hover:brightness-110 active:scale-95 transition-all`}
+  >
+    Subscribe
+  </button>
+</form>
+
+<script is:inline>
+  function handleNewsletterSubmit(e) {
+    e.preventDefault();
+    // TODO: Replace with real Mailchimp form submission once embed code is provided
+    const form = e.target;
+    const btn  = form.querySelector('button[type="submit"]');
+    if (btn) {
+      btn.textContent = '✓ You\'re on the list!';
+      btn.disabled = true;
+    }
+  }
+</script>

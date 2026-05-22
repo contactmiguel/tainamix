@@ -1,0 +1,116 @@
+---
+interface Props {
+  activePage?: string;
+}
+const { activePage = '' } = Astro.props;
+
+const navLinks = [
+  { label: 'Home',                 href: '/',           key: 'home' },
+  { label: 'About Me',             href: '/about',      key: 'about' },
+  { label: 'The Thermomix®',       href: '/thermomix',  key: 'thermomix' },
+  { label: 'Recipes & Resources',  href: '/recipes',    key: 'recipes' },
+  { label: 'Shop',                 href: '/shop',       key: 'shop' },
+  { label: 'Book a Demo',          href: '/demo',       key: 'demo' },
+];
+---
+
+<header class="sticky top-0 z-50 shadow-sm glass-nav" id="site-header">
+  <div class="flex justify-between items-center w-full px-margin-desktop py-base max-w-container-max mx-auto">
+
+    <!-- Logo -->
+    <a href="/" class="shrink-0">
+      <img src="/images/logo.png" alt="TainaMix" class="h-10 w-auto" />
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden lg:flex items-center gap-stack-lg">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class={`font-label-md text-label-md transition-all ${
+            activePage === link.key
+              ? 'text-primary border-b-2 border-primary pb-1'
+              : 'text-on-surface-variant hover:text-primary'
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="flex items-center gap-stack-md">
+      <a
+        href="/demo"
+        class="hidden lg:block font-label-md text-label-md text-primary hover:bg-surface-container-low px-4 py-2 rounded-full transition-colors"
+      >
+        Join Now
+      </a>
+      <a
+        href="https://shop.thermomix.com/consultant/100096"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-primary-container text-on-primary px-stack-md py-stack-sm rounded-full font-label-md text-label-md shadow-sm active:scale-95 transition-transform"
+      >
+        Shop Now
+      </a>
+
+      <!-- Mobile Hamburger -->
+      <button
+        id="menu-toggle"
+        class="lg:hidden p-2 text-on-surface"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <span class="material-symbols-outlined" id="menu-icon">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-surface-container-lowest border-t border-outline-variant/20 px-margin-mobile py-stack-md">
+    {navLinks.map(link => (
+      <a
+        href={link.href}
+        class={`block py-3 font-label-md text-label-md border-b border-outline-variant/20 last:border-0 transition-colors ${
+          activePage === link.key
+            ? 'text-primary'
+            : 'text-on-surface-variant hover:text-primary'
+        }`}
+      >
+        {link.label}
+      </a>
+    ))}
+    <a
+      href="https://shop.thermomix.com/consultant/100096"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-stack-md block w-full text-center bg-primary text-on-primary px-stack-md py-3 rounded-lg font-label-md text-label-md"
+    >
+      Shop Now
+    </a>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu   = document.getElementById('mobile-menu');
+  const icon   = document.getElementById('menu-icon');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden', isOpen);
+    if (icon) icon.textContent = isOpen ? 'menu' : 'close';
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  // Glass effect on scroll
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+      header?.classList.add('shadow-md');
+    } else {
+      header?.classList.remove('shadow-md');
+    }
+  });
+</script>
