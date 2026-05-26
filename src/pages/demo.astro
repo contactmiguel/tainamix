@@ -91,6 +91,7 @@ import NewsletterBar from '../components/NewsletterBar.astro';
         </div>
 
         <form
+          id="demo-form"
           action="https://formspree.io/f/xlgvbyvz"
           method="POST"
           class="space-y-stack-md"
@@ -166,13 +167,30 @@ import NewsletterBar from '../components/NewsletterBar.astro';
           <input type="hidden" name="_subject" value="New Demo Request from TainaMix.com" />
           <input type="text" name="_gotcha" class="hidden" />
 
-          <button
-            type="submit"
-            class="w-full md:w-auto px-12 py-4 bg-primary text-on-primary rounded-xl font-headline-md shadow-lg hover:brightness-110 active:scale-95 transition-all"
-          >
-            Send Message
-          </button>
+          <div class="flex items-center gap-4 flex-wrap">
+            <button
+              id="demo-submit"
+              type="submit"
+              class="px-12 py-4 bg-primary text-on-primary rounded-xl font-headline-md shadow-lg hover:brightness-110 active:scale-95 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              Send Message
+            </button>
+            <p id="demo-error" class="hidden text-red-600 font-body-md text-body-md">
+              Something went wrong — please try again or contact Taina directly.
+            </p>
+          </div>
         </form>
+
+        <!-- Success state (shown after submission) -->
+        <div id="demo-success" class="hidden py-10 text-center space-y-4">
+          <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+            <span class="material-symbols-outlined text-primary text-5xl" style="font-variation-settings:'FILL' 1">check_circle</span>
+          </div>
+          <h3 class="font-headline-lg text-headline-lg text-on-surface">Message Sent!</h3>
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-sm mx-auto">
+            Thank you! Taina will be in touch within 24 hours.
+          </p>
+        </div>
       </div>
 
       <!-- Sidebar -->
@@ -343,5 +361,40 @@ import NewsletterBar from '../components/NewsletterBar.astro';
 
     </div>
   </section>
+
+  <script is:inline>
+    const form    = document.getElementById('demo-form');
+    const success = document.getElementById('demo-success');
+    const submit  = document.getElementById('demo-submit');
+    const error   = document.getElementById('demo-error');
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submit.disabled = true;
+      submit.textContent = 'Sending…';
+      error.classList.add('hidden');
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          form.classList.add('hidden');
+          success.classList.remove('hidden');
+        } else {
+          submit.disabled = false;
+          submit.textContent = 'Send Message';
+          error.classList.remove('hidden');
+        }
+      } catch {
+        submit.disabled = false;
+        submit.textContent = 'Send Message';
+        error.classList.remove('hidden');
+      }
+    });
+  </script>
 
 </BaseLayout>
