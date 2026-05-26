@@ -69,6 +69,58 @@ const videos = [
     </div>
   </section>
 
+  <!-- ─── Recipe Grid Preview ──────────────────────────────────────── -->
+  <section class="py-16 bg-surface-container-low" id="recipes">
+    <div class="max-w-container-max mx-auto px-margin-desktop">
+      <div class="flex justify-between items-end mb-stack-lg">
+        <div>
+          <h2 class="font-headline-lg text-headline-lg">More from the Kitchen</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant">A sample of what's possible with your Thermomix®</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+        {[
+          { img: "quinoa.avif",          name: "Quinoa Salad with Strawberry Vinaigrette", time: "20m", level: "Beginner",     url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r342277" },
+          { img: "focacia.avif",         name: "Focaccia with Sea Salt",                   time: "45m", level: "Easy",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r493450" },
+          { img: "tomatosoup.avif",      name: "Velvety Tomato Bisque",                    time: "20m", level: "Beginner",     url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r36221"  },
+          { img: "spaghetti.avif",       name: "Spaghetti Carbonara",                      time: "30m", level: "Intermediate", url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r178879" },
+          { img: "thaichickencurry.avif",name: "Quick Thai Chicken Curry",                 time: "25m", level: "Easy",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91264"  },
+          { img: "mousse.avif",          name: "Chocolate Mousse",                         time: "15m", level: "Easy",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r68025"  },
+          { img: "Hummus.png",           name: "Classic Hummus",                           time: "10m", level: "Beginner",     url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91546"  },
+          { img: "Banana_Bread.jpg",     name: "Banana Bread",                             time: "60m", level: "Easy",         url: "https://cookidoo.us" },
+        ].map(recipe => (
+          <a href={recipe.url} target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl overflow-hidden recipe-card-shadow hover:-translate-y-1 transition-transform duration-300 flex flex-col">
+            <div class="h-40 overflow-hidden">
+              <img
+                src={`/images/recipes/${recipe.img}`}
+                alt={recipe.name}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-4 flex flex-col flex-1">
+              <h5 class="font-label-md text-label-md text-on-background mb-2 leading-snug">{recipe.name}</h5>
+              <div class="flex gap-3 text-on-surface-variant text-xs mt-auto">
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[14px]">timer</span> {recipe.time}
+                </span>
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[14px]">equalizer</span> {recipe.level}
+                </span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="text-center mt-stack-lg">
+        <a href="https://cookidoo.us" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-xl font-label-md text-label-md shadow-sm hover:brightness-110 transition-all">
+          Browse All Recipes on Cookidoo®
+          <span class="material-symbols-outlined">open_in_new</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ─── Video Carousel ───────────────────────────────────────────── -->
   <section class="py-16 bg-surface-container-low" id="videos">
     <div class="max-w-container-max mx-auto px-margin-desktop">
@@ -159,58 +211,6 @@ const videos = [
       carousel.scrollBy({ left: 340, behavior: 'smooth' });
     });
   </script>
-
-  <!-- ─── Recipe Grid Preview ──────────────────────────────────────── -->
-  <section class="py-16 bg-surface-container-low" id="recipes">
-    <div class="max-w-container-max mx-auto px-margin-desktop">
-      <div class="flex justify-between items-end mb-stack-lg">
-        <div>
-          <h2 class="font-headline-lg text-headline-lg">More from the Kitchen</h2>
-          <p class="font-body-md text-body-md text-on-surface-variant">A sample of what's possible with your Thermomix®</p>
-        </div>
-      </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
-        {[
-          { img: "Focaccia_with_Sea_Salt_Flakes.jpg", name: "Focaccia with Sea Salt", time: "45m", level: "Easy" },
-          { img: "Creamy_Tomato_Soup.jpg", name: "Velvety Tomato Bisque", time: "20m", level: "Beginner" },
-          { img: "Spaghetti_Carbonara.jpg", name: "Spaghetti Carbonara", time: "30m", level: "Intermediate" },
-          { img: "Chocolate_Mousse.jpg", name: "Chocolate Mousse", time: "15m", level: "Easy" },
-          { img: "Hummus.png", name: "Classic Hummus", time: "10m", level: "Beginner" },
-          { img: "Banana_Bread.jpg", name: "Banana Bread", time: "60m", level: "Easy" },
-          { img: "Risotto_with_Parmesan_Cheese.jpg", name: "Parmesan Risotto", time: "35m", level: "Intermediate" },
-          { img: "Lasagna.jpg", name: "Classic Lasagna", time: "75m", level: "Intermediate" },
-        ].map(recipe => (
-          <div class="group bg-white rounded-2xl overflow-hidden recipe-card-shadow hover:-translate-y-1 transition-transform duration-300">
-            <div class="h-40 overflow-hidden">
-              <img
-                src={`/images/recipes/${recipe.img}`}
-                alt={recipe.name}
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div class="p-4">
-              <h5 class="font-label-md text-label-md text-on-background mb-2 leading-snug">{recipe.name}</h5>
-              <div class="flex gap-3 text-on-surface-variant text-xs">
-                <span class="flex items-center gap-1">
-                  <span class="material-symbols-outlined text-[14px]">timer</span> {recipe.time}
-                </span>
-                <span class="flex items-center gap-1">
-                  <span class="material-symbols-outlined text-[14px]">equalizer</span> {recipe.level}
-                </span>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div class="text-center mt-stack-lg">
-        <a href="https://cookidoo.us" target="_blank" rel="noopener noreferrer"
-           class="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-xl font-label-md text-label-md shadow-sm hover:brightness-110 transition-all">
-          Browse All Recipes on Cookidoo®
-          <span class="material-symbols-outlined">open_in_new</span>
-        </a>
-      </div>
-    </div>
-  </section>
 
   <!-- ─── More to Watch ────────────────────────────────────────────── -->
   <section class="py-16 bg-surface-container-low">

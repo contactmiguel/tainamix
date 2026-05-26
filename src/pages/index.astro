@@ -123,19 +123,16 @@ import NewsletterBar from '../components/NewsletterBar.astro';
           <p class="text-on-surface-variant">Curated recipes for the modern Thermomix® user.</p>
         </div>
         <a href="/recipes" class="hidden md:flex items-center gap-2 text-primary font-label-md group">
-          Explore all recipes <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          Explore more recipes <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
         </a>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-gutter">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
         {[
-          { img: "Quinoa_Salad_with_Strawberry_Vinaigrette.jpg", name: "Quinoa Salad with Strawberry Vinaigrette", time: "20m", level: "Beginner" },
-          { img: "Focaccia_with_Sea_Salt_Flakes.jpg",            name: "Focaccia with Sea Salt",                   time: "45m", level: "Easy" },
-          { img: "Creamy_Tomato_Soup.jpg",                       name: "Velvety Tomato Bisque",                    time: "20m", level: "Beginner" },
-          { img: "Spaghetti_Carbonara.jpg",                      name: "Spaghetti Carbonara",                      time: "30m", level: "Intermediate" },
-          { img: "Quick_Thai_Chicken_Curry.jpg",                 name: "Quick Thai Chicken Curry",                 time: "25m", level: "Easy" },
-          { img: "Chocolate_Mousse.jpg",                         name: "Chocolate Mousse",                         time: "15m", level: "Easy" },
+          { img: "quinoa.avif",     name: "Quinoa Salad with Strawberry Vinaigrette", time: "20m", level: "Beginner",     url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r342277" },
+          { img: "focacia.avif",    name: "Focaccia with Sea Salt",                   time: "45m", level: "Easy",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r493450" },
+          { img: "tomatosoup.avif", name: "Velvety Tomato Bisque",                    time: "20m", level: "Beginner",     url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r36221"  },
         ].map(recipe => (
-          <a href="/recipes" class="group bg-surface-container-lowest rounded-3xl overflow-hidden recipe-card-shadow hover:-translate-y-1 transition-transform duration-300 flex flex-col">
+          <a href={recipe.url} target="_blank" rel="noopener noreferrer" class="group bg-surface-container-lowest rounded-3xl overflow-hidden recipe-card-shadow hover:-translate-y-1 transition-transform duration-300 flex flex-col">
             <div class="h-48 overflow-hidden">
               <img
                 src={`/images/recipes/${recipe.img}`}
