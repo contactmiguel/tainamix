@@ -1,284 +1,318 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const videos = [
-  { num: 1,  type: "youtube", id: "o4xr6xRMcc4", title: "Welcome to the Community",        desc: "Your starting point — meet the TainaMix community.", url: "https://youtu.be/o4xr6xRMcc4", color: "bg-primary" },
-  { num: 2,  type: "youtube", id: "3wb8TRr3z0Y", title: "Intro to Cookidoo®",               desc: "10-minute walkthrough of the recipe platform. Free for 6 months with TM6.", url: "https://youtu.be/3wb8TRr3z0Y", color: "bg-tertiary" },
-  { num: 3,  type: "youtube", id: "HtbmRt1jWHs", title: "Set Your Preferences",             desc: "Customize Cookidoo® to get recipes from multiple countries and languages.", url: "https://youtu.be/HtbmRt1jWHs", color: "bg-secondary" },
-  { num: 4,  type: "youtube", id: "38JpyIFeoag", title: "Unboxing Your Thermomix®",         desc: "Follow along for setup — connect to WiFi, log into Cookidoo®, and you're ready.", url: "https://youtu.be/38JpyIFeoag", color: "bg-primary" },
-  { num: 5,  type: "youtube", id: "jv08iKa6VPM", title: "Your First Dish: Tomato Soup",    desc: "Gather your ingredients and cook along for your very first Thermomix® meal.", url: "https://youtu.be/jv08iKa6VPM", color: "bg-tertiary" },
-  { num: 6,  type: "vimeo",   id: "397976804",   title: "Berry Dream",                      desc: "A simple, fresh dessert to wow your family.", url: "https://vimeo.com/397976804", fallback: "/images/recipes/Berry_Dream.jpg", color: "bg-secondary" },
-  { num: 7,  type: "vimeo",   id: "397968287",   title: "Focaccia with Sea Salt",           desc: "Warm, crusty homemade bread — easier than you think.", url: "https://vimeo.com/397968287", fallback: "/images/recipes/Focaccia_with_Sea_Salt_Flakes.jpg", color: "bg-primary" },
-  { num: 8,  type: "vimeo",   id: "397781473",   title: "Tinga de Pollo",                   desc: "A bold, smoky Mexican chicken dish made effortlessly.", url: "https://vimeo.com/397781473", fallback: "/images/recipes/Quick_Thai_Chicken_Curry.jpg", color: "bg-tertiary" },
-  { num: 9,  type: "vimeo",   id: "397969662",   title: "Asian Rice with Vegetables",       desc: "A light, flavorful one-pot meal for any night.", url: "https://vimeo.com/397969662", fallback: "/images/recipes/Risotto_with_Parmesan_Cheese.jpg", color: "bg-secondary" },
-  { num: 10, type: "youtube", id: "HwoXSxniCsw", title: "Shopping List & Delivery",         desc: "Use Cookidoo®'s built-in shopping list and grocery delivery option.", url: "https://youtu.be/HwoXSxniCsw", color: "bg-primary" },
-  { num: 11, type: "youtube", id: "SQFz0wIXobQ", title: "Find & Save Cookbooks",            desc: "How to discover and save cookbooks directly in Cookidoo®.", url: "https://youtu.be/SQFz0wIXobQ", color: "bg-tertiary" },
-  { num: 12, type: "youtube", id: "1eXBLHVEVA0", title: "Recipes for Large Families",       desc: "Tips for scaling and finding family-sized recipes in Cookidoo®.", url: "https://youtu.be/1eXBLHVEVA0", color: "bg-secondary" },
-  { num: 13, type: "youtube", id: "fpXYT3m6mqw", title: "Advanced Recipe Search",           desc: "More tricks to find your perfect recipe faster.", url: "https://youtu.be/fpXYT3m6mqw", color: "bg-primary" },
-  { num: 14, type: "youtube", id: "XBvRlSylpRA", title: "Create Your Own Recipes",          desc: "Save and build your personal recipes inside Cookidoo®.", url: "https://youtu.be/XBvRlSylpRA", color: "bg-tertiary" },
-  { num: 15, type: "youtube", id: "5n8KN58znlI", title: "Translate Recipes",                desc: "How to translate any recipe into your preferred language.", url: "https://youtu.be/5n8KN58znlI", color: "bg-secondary" },
-  { num: 16, type: "youtube", id: "o6WER6EVm8E", title: "Share Recipe Collections",         desc: "Share your curated Cookidoo® collections with friends and family.", url: "https://youtu.be/o6WER6EVm8E", color: "bg-primary" },
-  { num: 17, type: "youtube", id: "Sai0U-8RIBI", title: "Renew Your Subscription",          desc: "Step-by-step guide to renewing Cookidoo® (desktop only).", url: "https://youtu.be/Sai0U-8RIBI", color: "bg-tertiary" },
-  { num: 18, type: "youtube", id: "wR9AtyFPAEI", title: "Adjust Serving Portions",          desc: "Easily scale any recipe up or down in Cookidoo®.", url: "https://youtu.be/wR9AtyFPAEI", color: "bg-secondary" },
+const recipes = [
+  // Basics
+  { name: "Vegetable Stock Paste",           category: "Basics",          url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91184",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/6b8958acbfd91dbbb0202b9f0b9683e5/Derivates/78c4717d07e3e0e37c3fbfbf1b6aa650a2a70b2e.jpg" },
+  { name: "Steamed Rice",                    category: "Basics",          url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r178869", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/9e60f2e563258fa400b4e2790f02f8ff/Derivates/9b315648666e6b45cf66bac3b5437f9a25ef883b.jpg" },
+  { name: "Boiled Eggs",                     category: "Basics",          url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91181",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/f3e28ffb911eec6bbadd0ce506a548aa/Derivates/c9b74c49cafb77d785cb3b54eedb5ac7a525b2dc.jpg" },
+  { name: "Pizza Dough",                     category: "Basics",          url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r66933",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/865a754f1ff37877546ec723fbf84a66/Derivates/d2f78a8f4c211efa6672bc5d82246c22bc5fc5d1.jpg" },
+  { name: "Vanilla Sugar",                   category: "Basics",          url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r66924",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/65ACA80D-E46D-4B51-919B-78154969DC82/Derivates/6D716DC7-6017-4250-803B-1FC6704025CE.jpg" },
+  { name: "Stir-Fried Vegetables",           category: "Basics",          url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r544092", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/3A237A06-0116-4582-8A61-6F3805F81F93/Derivates/B24F39F0-A40A-413F-9184-9FFB33555590.jpg" },
+  { name: "Mashed Potatoes",                 category: "Basics",          url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r67447",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/aa8610851a1901b2c2ffbbc7866869f0/Derivates/5fbef441d86a943b9a3f85cf929c801e28173332.jpg" },
+  // Soups
+  { name: "Creamy Tomato Soup",              category: "Soups",           url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r36221",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/2FFBF2E2-73DA-4FFC-B6AF-B561E41C33BD/Derivates/1345FF4F-A4CE-47B7-832D-3483962F1969.jpg" },
+  { name: "Leek and Potato Soup",            category: "Soups",           url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r151890", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/ECD93955-D443-4F63-B910-DD56D2A05DE5/Derivates/162BF448-DB0C-439A-B829-63FED9BF61C4.jpg" },
+  { name: "Minestrone",                      category: "Soups",           url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r39137",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/A4059C55-3C21-4B00-BCA2-641C98F6B1CB/Derivates/08CD63ED-14DE-4F07-936C-CEA43AA29C1A.jpg" },
+  { name: "Pea and Mint Soup",               category: "Soups",           url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r82899",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/83E80698-2D6F-423D-8D6F-7D3506FBA362/Derivates/07CDF2C8-C587-4FA3-AD3C-3F3C13E4877A.jpg" },
+  { name: "Tofu Stew",                       category: "Soups",           url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r151911", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/5539E40C-CBC4-4E7C-8B69-3CA06E696758/Derivates/FBE21718-6974-47BB-AAF3-A8157CDE13D9.jpg" },
+  // Risotto
+  { name: "Carrot and Brussels Sprouts Risotto", category: "Risotto",     url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r322515", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/1B486AC2-039E-45FC-B354-FD2CA5519B98/Derivates/8D54FDFC-D11C-41B8-864B-5139E15822A9.jpg" },
+  { name: "Classic Mushroom Risotto",         category: "Risotto",        url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r68517",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/0A06C436-5E0B-4AF6-AC5E-881717336DB3/Derivates/91DF2BA0-A918-49A2-992D-02848016310D.jpg" },
+  { name: "Risotto with Parmesan Cheese",     category: "Risotto",        url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91196",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/f6f053ecf52ab069e23853c327b611bd/Derivates/d459bc9fb5bb27ff14ebdcff1a2dc2e6ad2fad44.jpg" },
+  // Quick & Easy
+  { name: "Quick Thai Chicken Curry",         category: "Quick & Easy",   url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91264",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/a42ce247ae9412b9f703e66284ba1ddb/Derivates/cfd8b68cab16f0c8cadf8d1ee2c45645f688dfc5.jpg" },
+  { name: "Ratatouille",                      category: "Quick & Easy",   url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r67694",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/6a15d795b32ee91f7ccb6997d5581b23/Derivates/622800130a7effe37937deb22dcd108f99a66c1e.jpg" },
+  { name: "Spaghetti Carbonara",              category: "Quick & Easy",   url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r178879", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/61FCB2B2-DB84-4A68-ABB8-F9FBA800BCA3/Derivates/FCB48A53-86F0-4697-BE75-7B7CE9B49EBE.jpg" },
+  { name: "Tinga de Pollo",                   category: "Quick & Easy",   url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91262",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/370b61a4aaf44ea98a42dd5b5d05ee82/Derivates/f80663f8ffbd443cf601b66a2f62e141747fcaf3.jpg" },
+  { name: "Zucchini Slice",                   category: "Quick & Easy",   url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r79761",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/7994836911aed323a8c04145af312e12/Derivates/b825b45cd991490e4858842f2aec398f327a6c22.jpg" },
+  { name: "Eggs with Coconut Curry Sauce",    category: "Quick & Easy",   url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r256223", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/86822159-A8D8-4C9F-A183-CEDA837B73D2/Derivates/FB6169D1-477F-49C2-AB01-0D9990E1787E.jpg" },
+  // Salads
+  { name: "5-Second Rainbow Salad",           category: "Salads",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r117600", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/B18DF2AC-7C49-4301-A2DF-6892B5E90AA5/Derivates/C0C5C955-7B79-4F08-8BF8-8055ED1774CB.jpg" },
+  { name: "Smoky Couscous Salad",             category: "Salads",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r222072", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/B1BA70FA-0832-4BAE-9A01-978C0ABF2327/Derivates/B49CB15E-CDF0-4E1D-A3E7-F96E3BC10F47.jpg" },
+  { name: "Quinoa Salad with Strawberry Vinaigrette", category: "Salads", url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r342277", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/674f1dea-4207-4726-b79b-65e490cceed0/Derivates/6aa87778-2462-47b7-a316-ba6f337b6789.jpg" },
+  { name: "Tomatoes with Wasabi Dressing",    category: "Salads",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r409907", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/8796F2C3-1A00-4E5B-AA22-363D5E33761F/Derivates/f97cd0a5-1b2c-4b41-9a60-3f168425a079.jpg" },
+  { name: "Creamy Broccoli Salad",            category: "Salads",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r624269", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/FE466B04-6BBC-4282-97A9-1EB5E509B8BA/Derivates/b26230c1-5825-40df-bbb4-d329164cb1ed.jpg" },
+  { name: "Hawaiian Coleslaw",                category: "Salads",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r125353", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/57CCBAD0-4EFE-4C71-A401-8ADE9AAF3C9A/Derivates/3e7cc1a87cbb7004758142e1e3f2a2e7b6b554da.jpg" },
+  // Varoma
+  { name: "Asian-Style Rice with Eggs and Vegetables", category: "Varoma", url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91312", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/1571cb807480b1403ff0c685fcefaa01/Derivates/172fd6dc15ec5254aa66015e2ee7e17a39f4c5ce.jpg" },
+  { name: "Indian Vegetable Curry",           category: "Varoma",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r63556",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/A2FF212E-0AF3-4355-87FE-D79DB0645C4E/Derivates/A624ECAB-386E-4ADB-ACE5-CD54F9901D5D.jpg" },
+  { name: "Florentine Meatballs and Linguine", category: "Varoma",        url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r450686", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/351967C6-15C2-4B1C-911A-92ACCD6D53DA/Derivates/a7f5f981-c425-4f66-8f86-b39b5af9d828.jpg" },
+  { name: "Risoni with Salmon and Spinach",   category: "Varoma",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r136625", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/C4E81607-57D0-43C3-92E1-065F8DED03F8/Derivates/1496D023-D9B3-4F97-A1C5-E111E4715A3A.jpg" },
+  { name: "Salmon and Lemon Rice Salad",      category: "Varoma",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r254121", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/7EFF69E0-1FDF-4D3B-9020-3EC337EF97D8/Derivates/ae846f5b-d902-4413-a54e-f3e58d744cc9.jpg" },
+  // Into the Oven
+  { name: "Chicken Breasts Au Gratin in Chipotle Salsa", category: "Into the Oven", url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r654041", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/8e337370-bcb9-4034-9b9b-831ed4412c73/Derivates/53231395-2c8e-47a1-b896-84b3a00490ce.jpg" },
+  { name: "Cornbread Pie",                    category: "Into the Oven",  url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r615673", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/F9B2F76B-98B3-41C2-B427-A85600AEA80A/Derivates/77162516-AA27-4381-BC37-CC254EAEC880.jpg" },
+  { name: "Baked Fish with Shrimp and Basmati Rice", category: "Into the Oven", url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r654043", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/a2e73c3a-f76c-4959-b89b-9d9c0645fcc4/Derivates/adbcfe21-b5d0-4bf6-a38a-1fbee55c2cb6.jpg" },
+  { name: "Lasagna",                          category: "Into the Oven",  url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91191",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/1feda63b40ca09a2312554954c906138/Derivates/bbf5f4e073480413a44ba0e492d103fd52d700b3.jpg" },
+  { name: "Lentil Moussaka",                  category: "Into the Oven",  url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91277",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/0d73edf94a3e1dfae600a7814dae11de/Derivates/d32023f9da4239811724933b2e2c9370549bfb8a.jpg" },
+  { name: "Quiche Lorraine",                  category: "Into the Oven",  url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r151851", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/3373835D-ED5F-4699-ADB9-976339DD87ED/Derivates/FA5DE024-4124-4129-8CED-B0FB77BD5131.jpg" },
+  // Baking (Sweet + Savory merged)
+  { name: "Almond Biscotti",                  category: "Baking",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r113840", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/691F4D11-3E98-4529-B1F9-61ABF74EF1E3/Derivates/29BCAAC4-DC29-4825-8B1F-5D2B2A845E76.jpg" },
+  { name: "Banana Bread",                     category: "Baking",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91348",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/9790e1f9f58aa8660d078fc4873a758a/Derivates/5286345505cd4be8ee196bed87488b88b70a0c5d.jpg" },
+  { name: "Blackberry Crumble",               category: "Baking",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r227819", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/5e44b1e2-23fb-435a-885e-68af210b2056/Derivates/5ae2c8a1f1e5c7ebabaa0719a84b153f844a93ff.jpg" },
+  { name: "Braided Milk Bread",               category: "Baking",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91217",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/f287e82bd0b73b03b3455a32e97cd2a0/Derivates/1c76fd2be65ed1f286679ba0d855ac03779036fa.jpg" },
+  { name: "Torta Caprese",                    category: "Baking",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r69108",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/bc7a5f0c-c6ac-4c22-ae6c-6185168bd90a/Derivates/734e3ea7-115f-48ff-98b0-99b063cb262d.jpg" },
+  { name: "Cheddar Biscuits",                 category: "Baking",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r438941", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/1ABA07AA-4CE6-4EB9-817A-C22D71EB317A/Derivates/A9D83DF9-52D4-4F5B-B714-EB14409D8D98.jpg" },
+  { name: "Seriously Seedy Crackers",         category: "Baking",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r86649",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/5ED40FE4-E890-464E-923A-D40EFA9A3939/Derivates/94C6BEFA-00CA-4523-9D82-B9A96F362A2F.jpg" },
+  { name: "Focaccia with Sea Salt Flakes",    category: "Baking",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r493450", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/63D3854D-D39C-4999-9DC0-AFF9583DB3F7/Derivates/BF9507B3-F2C0-4262-8346-649A5F980789.jpg" },
+  { name: "Naan Bread",                       category: "Baking",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r80110",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/91F66E64-BDB2-44D4-B216-C24696E6604D/Derivates/2BDDD4DE-A2D8-4891-A233-0CFF2709F75B.jpg" },
+  { name: "Christmas Tree Pull-apart Bread",  category: "Baking",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r253204", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/a324b5fc-7d34-46fb-aaac-348af56cf3cd/Derivates/be4e27a5-ee53-423e-b8b7-d7ed267240bd.jpg" },
+  // Desserts
+  { name: "Banana Ice Cream (Nice Cream)",    category: "Desserts",       url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r618747", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/D46BC1B1-F52C-41D4-A4F5-B3736CF5FA7E/Derivates/36261CD2-0CFC-4F77-B02C-1762B6BACBDA.jpg" },
+  { name: "Berry Dream",                      category: "Desserts",       url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91237",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/1d2e448760e8194845965da7c453298a/Derivates/afb4c1df36689d2acf1f7614996d6dde1dd474e7.jpg" },
+  { name: "Chocolate Mousse",                 category: "Desserts",       url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r68025",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/ecda3635c6507657220776068b8c74e7/Derivates/c92a12cc2c7fbb314fb082c667e785d7afa6b063.jpg" },
+  { name: "Harlequin Custard",                category: "Desserts",       url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r497091", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/f73839b7-3ae3-4678-b8f7-4959640166bf/Derivates/0c760b9f-99bc-41be-a227-f103567aad43.jpg" },
+  { name: "Lemon Curd",                       category: "Desserts",       url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91295",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/2efe419c582f36ccd5bdecc6463ce316/Derivates/3feff7b820d714075669114443505126c205ffab.jpg" },
+  { name: "Rice Pudding",                     category: "Desserts",       url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r68955",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/6bb3d0a3f50665925bf6382304a1023c/Derivates/28747e0e9e9fa8c79336db01748214e83123d4b1.jpg" },
+  { name: "Sabayon (Zabaglione)",             category: "Desserts",       url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r39598",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/94E13326-F4B7-452C-BDD5-FA4BB676E826/Derivates/75A4E25D-558D-4EDC-9410-468BD2C2D49A.jpg" },
+  // Dips & Dressings
+  { name: "Garlic and Herb Butter",           category: "Dips & Dressings", url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r409342", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/8B9FA02B-B4B9-4495-8BAF-A35646428C7B/Derivates/606a57d5-68c8-41ee-bdc7-2221e7c621ba.jpg" },
+  { name: "Herb Cashew Spread",               category: "Dips & Dressings", url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r101899", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/B3A73DCC-CADD-418C-90A2-7124EE26528F/Derivates/7457AD04-0EC9-4E5E-9A1F-0514ED384105.jpg" },
+  { name: "Hummus",                           category: "Dips & Dressings", url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91546",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/2083327f4c2ac6c100f3a41c3c794269/Derivates/1729cfaee20591e3a7aebb5d86ddf9d8ff69b167.jpg" },
+  { name: "Roasted Red Pepper and Cashew Dip", category: "Dips & Dressings", url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r156919", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/6833ffc2bcb262f5e40eab6b1eb63b92/Derivates/7443976542cfa6d1d1e573be134b4877f4fa7c0a.jpg" },
+  { name: "Basil Pesto",                      category: "Dips & Dressings", url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91220",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/73e50aacb1a333a854d4e4745ebb3e04/Derivates/a671564f77d6dad0aa4b2eea1aaa87eafa475b28.jpg" },
+  { name: "Yogurt Dressing",                  category: "Dips & Dressings", url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91226",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/68134b445aa36a07b5dc7dde9025166b/Derivates/2e96c0c705aa48ce4a3d165c64874ebc9ef5d442.jpg" },
+  { name: "Cream Cheese Spread with Radishes", category: "Dips & Dressings", url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91227", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/3fed128cda5bfe0a0726953b59661763/Derivates/2a0cb4a74fc322820e9674fd14b58da489581085.jpg" },
+  // Drinks
+  { name: "Golden Milk",                      category: "Drinks",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r161847", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/3a4fb354-8479-4f22-b5d2-dfcd6f88db2c/Derivates/6a2d1583-32da-4cda-98c1-7a770a8a7c88.jpg" },
+  { name: "Spring Greens",                    category: "Drinks",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r166028", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/20AF44BD-07C0-4B88-89CD-0AF87A8C89CF/Derivates/58DA80C2-1442-4EBA-B211-17ACD133B468.jpg" },
+  { name: "Margarita",                        category: "Drinks",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r63339",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/C7C49A43-D642-470B-AB31-CF02040C1D44/Derivates/EAAAD755-D300-486A-8F60-03BDE5574016.jpg" },
+  { name: "Whiskey Cream Liqueur",            category: "Drinks",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r104360", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/0C719FFA-4DD0-4E65-B9A3-9BAC162E36A3/Derivates/BC43B1A5-D889-4B9F-A375-A61249065A85.jpg" },
+  { name: "Christmas Punch",                  category: "Drinks",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r104361", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/773aaf14982c525b1a034f7d8fefaff4/Derivates/abef3e1dd646388f7f745053d04b0a1c58734ecf.jpg" },
+  // Breakfast
+  { name: "Peanut Butter",                    category: "Breakfast",      url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91357",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/9021c8b2218a9b14b0238b6156e7e5a1/Derivates/a63f563782da7b91ccf787430f4057b45fab5177.jpg" },
+  { name: "Oatmeal",                          category: "Breakfast",      url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91347",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/d66c6d48fcb707e56d967fd20353303e/Derivates/1720ee558a1dfc5a4356a72d7db51206d0d7a96f.jpg" },
+  { name: "Two Second Breakfast",             category: "Breakfast",      url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r113955", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/34834876-95ad-40c3-884b-e94134be4a63/Derivates/a02af4af-8df1-4cd2-aa14-095532059612.jpg" },
+  { name: "Green Eggs and Ham Roll-Ups",      category: "Breakfast",      url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r238852", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/A67FB938-E480-413F-8847-2D9142CF0993/Derivates/fcb4b535ab9a899383e19b341dcbb94d4b16fae4.jpg" },
+  { name: "Strawberry Jam",                   category: "Breakfast",      url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91232",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/a68f370246836174c76df2ed5fc66f29/Derivates/77d472dc4fb0fe9acdd2d84c217fc5b11ca11ff1.jpg" },
+  { name: "Pancakes and Waffles",             category: "Breakfast",      url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91178",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/642c5b4c0970daeeddcbd7d9e37bdcc8/Derivates/09cd5b84206e357351eaa0d2d2073803081bef45.jpg" },
+  // German
+  { name: "Obatzter (Cheese Spread)",         category: "German",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r105676", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/3D1F44D5-E5D6-4C7E-A367-01A7FC2DE4D5/Derivates/A33E1605-35C4-4520-A5A4-CCB63E11F6A0.jpg" },
+  { name: "Gemüse-Hähnchen-Auflauf",          category: "German",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r483546", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/370355A6-4465-4CB5-896A-89F300AC1211/Derivates/5b7ea61b-c7df-4da5-99d7-05046dd9a8ca.jpg" },
+  { name: "Germknödel mit Vanillesauce",      category: "German",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r249337", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/23C5E15E-9AD6-4747-8EC3-DBAAE555358E/Derivates/ba0cd101-6890-4294-874b-c771893e7e1b.jpg" },
+  { name: "Flotter Kokos-Linsen-Eintopf",     category: "German",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r143833", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/1888343C-BE91-4CA8-B553-8523697860D4/Derivates/F0E4346B-954B-4BB0-8004-20FB8092F6C5.jpg" },
+  { name: "Laksa — Malayische Nudelsuppe",    category: "German",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r15371",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/492F40E2-A73A-4135-95BA-E5BD5849966B/Derivates/8E8F150D-FF40-4909-9F7F-58750269ADED.jpg" },
+  { name: "Blumenkohl-Kartoffel-Eintopf",     category: "German",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r72466",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/ADCDBA1B-137A-435F-90FA-AE881107C186/Derivates/24DB95DD-9F37-401D-8271-3FEA39CD3A05.jpg" },
+  // Travelling
+  { name: "Three Egg French Omelet",          category: "Travelling",     url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r156450", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/e30b9cb16c5982cfb8bc89533e0de2b8/Derivates/fcc996024e6ef1e5ade6e253ce6c087cbe49a883.jpg" },
+  { name: "Quick Prawn Stir-Fry",             category: "Travelling",     url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r256148", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/041B0D61-FBF1-4464-91B3-CDBF252BD1AB/Derivates/FCE7F46C-6DC2-4ADD-AB26-9AC003DAD1BF.jpg" },
+  { name: "Simple Risotto",                   category: "Travelling",     url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r47938",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/158a1ca129ff7016586d64802dfc57ca/Derivates/b6b0bb1a9e27401a136f886fea2819f89e9d4e44.jpg" },
+  { name: "Steamed Scallops with Sweet Pea Purée", category: "Travelling", url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r157494", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/1dfea518-22ac-49c3-a07a-c87c676d8ba2/Derivates/cd5050fe-ea55-431b-8f67-1d9c12a3a247.jpg" },
+  { name: "Chinese-Style Stir-Fried Vegetables", category: "Travelling",  url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r68693",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/a0438492d8bfb3750558075f15b52ebe/Derivates/56136d9d956204f5c3694d9668079691d0916fdc.jpg" },
+  { name: "Coconut Dhal",                     category: "Travelling",     url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r82967",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/271a3a57cac064a57ac632d2bb854b2a/Derivates/a308eba59999e3bcffc944276819a826e2fc73cc.jpg" },
+  { name: "\"Hug in a Mug\" Chicken Soup",   category: "Travelling",     url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r252402", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/878828eba6b5a1724d36d5f269c1d23a/Derivates/67eb56f72dace38cd3d7f5b4a809cecad64f4e8a.jpg" },
+  { name: "Berry Ice Cream",                  category: "Travelling",     url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r642287", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/44A04427-6090-4471-B185-02C9F1D885FB/Derivates/3e046f8d-8331-4757-bc81-de72cb8adfd9.jpg" },
+  { name: "Smoothie",                         category: "Travelling",     url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r178830", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/6A43A526-4062-4CE6-8EAE-EACFD71794FF/Derivates/80BC6166-FE2B-4C5E-B556-62005183EF68.jpg" },
+  { name: "Broccoli Salad with Red Pepper",   category: "Travelling",     url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91246",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/bff2c4a1e45d0328e499e6e5b74e3b3a/Derivates/798f8c1facb7a1b8c56c97e0c7823f17b0a8abde.jpg" },
+  // Gift Ideas
+  { name: "Peanut Butter Bark",               category: "Gift Ideas",     url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r260310", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/B1827F7B-9F8B-42B6-8081-370CF306B2EA/Derivates/b2621f89a188cfeeffe7bec2eb049a801c621298.jpg" },
+  { name: "Berry Liqueur",                    category: "Gift Ideas",     url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r136024", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/37DC93C8-D4CC-49C1-BEFC-75A063EC2611/Derivates/BD64CE7E-7D03-4682-BD07-C5FF122224AA.jpg" },
+  { name: "Sweet and Spiced Nuts",            category: "Gift Ideas",     url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r260327", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/E1C83B8B-8762-4866-B396-AF3A678CE19C/Derivates/0bfe5f4a-7066-4ae0-9f94-65f83a6b7af7.jpg" },
+  { name: "Chilli Oil",                       category: "Gift Ideas",     url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91340",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/135DEEFD-055B-489A-ABEA-A878B88BB39D/Derivates/4CC2D1F5-DF01-4A6D-AB8A-15828FA614F9.jpg" },
+  { name: "Rosemary Salt",                    category: "Gift Ideas",     url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91332",  img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/1439B2E3-3C0F-41AF-8CF1-6A6BBAA79597/Derivates/743DFAA8-51F5-4520-977F-E4E1FDBC8751.jpg" },
+  { name: "Vanilla Bean Syrup",               category: "Gift Ideas",     url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r258274", img: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/76E27F2E-5CAB-4BF1-8399-2327D872A3B5/Derivates/E0DFC149-159B-4D49-8FEF-508995FAE959.jpg" },
 ];
+
+const categories = [
+  "All", "Basics", "Soups", "Risotto", "Quick & Easy", "Salads",
+  "Varoma", "Into the Oven", "Baking", "Desserts", "Dips & Dressings",
+  "Drinks", "Breakfast", "German", "Travelling", "Gift Ideas",
+];
+
+// Inline style strings — safe from Tailwind purging, one pastel hue per category
+const categoryStyle: Record<string, string> = {
+  "Basics":           "background-color:hsl(0,0%,91%);color:hsl(0,0%,28%)",
+  "Soups":            "background-color:hsl(208,75%,92%);color:hsl(208,75%,28%)",
+  "Risotto":          "background-color:hsl(38,80%,91%);color:hsl(38,70%,28%)",
+  "Quick & Easy":     "background-color:hsl(130,55%,90%);color:hsl(130,55%,22%)",
+  "Salads":           "background-color:hsl(90,60%,89%);color:hsl(90,55%,20%)",
+  "Varoma":           "background-color:hsl(185,65%,89%);color:hsl(185,65%,20%)",
+  "Into the Oven":    "background-color:hsl(22,75%,91%);color:hsl(22,70%,26%)",
+  "Baking":           "background-color:hsl(46,80%,89%);color:hsl(46,70%,24%)",
+  "Desserts":         "background-color:hsl(318,55%,92%);color:hsl(318,55%,26%)",
+  "Dips & Dressings": "background-color:hsl(72,58%,89%);color:hsl(72,55%,20%)",
+  "Drinks":           "background-color:hsl(222,65%,92%);color:hsl(222,65%,26%)",
+  "Breakfast":        "background-color:hsl(52,78%,89%);color:hsl(52,68%,22%)",
+  "German":           "background-color:hsl(4,60%,91%);color:hsl(4,60%,26%)",
+  "Travelling":       "background-color:hsl(158,55%,89%);color:hsl(158,55%,20%)",
+  "Gift Ideas":       "background-color:hsl(272,55%,92%);color:hsl(272,55%,26%)",
+};
 ---
 
 <BaseLayout
-  title="Recipes & Resources"
-  description="Taina's curated Thermomix® recipes, video playlists, Cookidoo® picks, and culinary resources. Start your journey here."
+  title="Recipes"
+  description="Browse 90+ hand-picked Thermomix® recipes from Taina's Cookidoo® collection. Filter by category and cook with confidence."
   activePage="recipes"
 >
 
   <!-- ─── Hero ─────────────────────────────────────────────────────── -->
-  <section class="pt-stack-lg pb-stack-md px-margin-desktop max-w-container-max mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">
-      <div class="space-y-stack-md">
-        <div class="inline-flex items-center gap-2 px-3 py-1 bg-tertiary/10 text-tertiary rounded-full">
-          <span class="material-symbols-outlined text-[18px]">auto_awesome</span>
-          <span class="font-label-md text-label-md uppercase tracking-widest">Everything you need</span>
+  <section class="pt-10 pb-6 px-margin-desktop max-w-container-max mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="material-symbols-outlined text-primary text-[20px]">menu_book</span>
+          <span class="font-label-md text-label-md text-primary uppercase tracking-widest">Cookidoo® Collection</span>
         </div>
-        <h1 class="font-headline-display text-headline-display text-on-background">
-          Recipes &amp; Resources
-        </h1>
-        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
-          From hand-picked recipes to essential video guides, this is your ultimate toolkit for life with the Thermomix®.
+        <h1 class="font-headline-display text-headline-display text-on-background">Taina's Recipe Collection</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant mt-2 max-w-xl">
+          {recipes.length} hand-picked recipes across {categories.length - 1} categories — each one linked directly to Cookidoo® so you can cook along.
         </p>
-        <div class="flex flex-wrap gap-stack-md pt-2">
-          <a href="#recipes" class="flex items-center gap-2 px-6 py-3 bg-primary/10 text-primary rounded-xl font-label-md text-label-md hover:bg-primary/20 transition-colors">
-            <span class="material-symbols-outlined">restaurant_menu</span>
-            Browse Recipe Picks
-          </a>
-          <a href="#videos" class="flex items-center gap-2 px-6 py-3 border-2 border-secondary text-secondary rounded-xl font-label-md text-label-md hover:bg-secondary-container transition-colors">
-            <span class="material-symbols-outlined">play_circle</span>
-            New Owner Playlist
-          </a>
-        </div>
       </div>
-      <div class="relative rounded-[2rem] overflow-hidden aspect-[4/3] lg:aspect-square recipe-card-shadow">
-        <img
-          src="/images/recipes/Quinoa_Salad_with_Strawberry_Vinaigrette.jpg"
-          alt="Featured recipe"
-          class="w-full h-full object-cover"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-        <div class="absolute bottom-6 left-6 right-6 glass-effect p-5 rounded-2xl">
-          <p class="font-label-md text-label-md text-primary mb-1">Featured This Month</p>
-          <h3 class="font-headline-md text-headline-md text-on-background">Quinoa Salad with Strawberry Vinaigrette</h3>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── Recipe Grid Preview ──────────────────────────────────────── -->
-  <section class="py-16 bg-surface-container-low" id="recipes">
-    <div class="max-w-container-max mx-auto px-margin-desktop">
-      <div class="flex justify-between items-end mb-stack-lg">
-        <div>
-          <h2 class="font-headline-lg text-headline-lg">More from the Kitchen</h2>
-          <p class="font-body-md text-body-md text-on-surface-variant">A sample of what's possible with your Thermomix®</p>
-        </div>
-      </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
-        {[
-          { img: "quinoa.avif",          name: "Quinoa Salad with Strawberry Vinaigrette", time: "20m", level: "Beginner",     url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r342277" },
-          { img: "focacia.avif",         name: "Focaccia with Sea Salt",                   time: "45m", level: "Easy",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r493450" },
-          { img: "tomatosoup.avif",      name: "Velvety Tomato Bisque",                    time: "20m", level: "Beginner",     url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r36221"  },
-          { img: "spaghetti.avif",       name: "Spaghetti Carbonara",                      time: "30m", level: "Intermediate", url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r178879" },
-          { img: "thaichickencurry.avif",name: "Quick Thai Chicken Curry",                 time: "25m", level: "Easy",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91264"  },
-          { img: "mousse.avif",          name: "Chocolate Mousse",                         time: "15m", level: "Easy",         url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r68025"  },
-          { img: "Hummus.png",           name: "Classic Hummus",                           time: "10m", level: "Beginner",     url: "https://cookidoo.thermomix.com/recipes/recipe/en-US/r91546"  },
-          { img: "Banana_Bread.jpg",     name: "Banana Bread",                             time: "60m", level: "Easy",         url: "https://cookidoo.us" },
-        ].map(recipe => (
-          <a href={recipe.url} target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl overflow-hidden recipe-card-shadow hover:-translate-y-1 transition-transform duration-300 flex flex-col">
-            <div class="h-40 overflow-hidden">
-              <img
-                src={`/images/recipes/${recipe.img}`}
-                alt={recipe.name}
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div class="p-4 flex flex-col flex-1">
-              <h5 class="font-label-md text-label-md text-on-background mb-2 leading-snug">{recipe.name}</h5>
-              <div class="flex gap-3 text-on-surface-variant text-xs mt-auto">
-                <span class="flex items-center gap-1">
-                  <span class="material-symbols-outlined text-[14px]">timer</span> {recipe.time}
-                </span>
-                <span class="flex items-center gap-1">
-                  <span class="material-symbols-outlined text-[14px]">equalizer</span> {recipe.level}
-                </span>
-              </div>
-            </div>
-          </a>
-        ))}
-      </div>
-      <div class="text-center mt-stack-lg">
-        <a href="https://cookidoo.us" target="_blank" rel="noopener noreferrer"
-           class="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-xl font-label-md text-label-md shadow-sm hover:brightness-110 transition-all">
-          Browse All Recipes on Cookidoo®
-          <span class="material-symbols-outlined">open_in_new</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── Video Carousel ───────────────────────────────────────────── -->
-  <section class="py-16 bg-surface-container-low" id="videos">
-    <div class="max-w-container-max mx-auto px-margin-desktop">
-      <div class="flex items-center justify-between mb-stack-lg">
-        <div>
-          <h2 class="font-headline-lg text-headline-lg">Get Cooking: Video Resources</h2>
-          <p class="font-body-md text-body-md text-on-surface-variant mt-1">18 step-by-step videos for every stage of your Thermomix® journey</p>
-        </div>
-        <div class="hidden md:flex gap-3">
-          <button
-            id="carousel-prev"
-            aria-label="Scroll left"
-            class="w-12 h-12 rounded-full border-2 border-outline-variant flex items-center justify-center hover:bg-surface-container transition-colors">
-            <span class="material-symbols-outlined">chevron_left</span>
-          </button>
-          <button
-            id="carousel-next"
-            aria-label="Scroll right"
-            class="w-12 h-12 rounded-full border-2 border-outline-variant flex items-center justify-center hover:bg-surface-container transition-colors">
-            <span class="material-symbols-outlined">chevron_right</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Scroll-snap carousel -->
-      <div
-        id="video-carousel"
-        class="flex gap-gutter overflow-x-auto pb-4 no-scrollbar snap-x snap-mandatory"
-        style="scroll-behavior: smooth;"
+      <a
+        href="https://cookidoo.us"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="shrink-0 flex items-center gap-2 px-6 py-3 bg-primary text-on-primary rounded-xl font-label-md text-label-md shadow-sm hover:brightness-110 transition-all self-start md:self-auto"
       >
-        {videos.map((v) => (
-          <div class="min-w-[300px] md:min-w-[320px] snap-start bg-white rounded-2xl overflow-hidden recipe-card-shadow flex flex-col">
-            <!-- Thumbnail -->
-            <div class="relative aspect-video bg-surface-container overflow-hidden group">
-              <img
-                src={v.type === "youtube"
-                  ? `https://img.youtube.com/vi/${v.id}/hqdefault.jpg`
-                  : `https://vumbnail.com/${v.id}.jpg`}
-                alt={v.title}
-                class="w-full h-full object-cover"
-                onerror={v.type === "vimeo"
-                  ? `this.src='${v.fallback}'`
-                  : `this.src='/images/recipes/Quinoa_Salad_with_Strawberry_Vinaigrette.jpg'`}
-                loading="lazy"
-              />
-              <div class="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors">
-                <div class={`w-14 h-14 rounded-full ${v.color} text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
-                  <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">play_arrow</span>
-                </div>
-              </div>
-              <span class="absolute top-3 left-3 w-8 h-8 flex items-center justify-center bg-black/60 backdrop-blur-md text-white rounded-full text-[11px] font-bold">
-                {v.num}
-              </span>
-              {v.type === "vimeo" && (
-                <span class="absolute top-3 right-3 px-2 py-0.5 bg-[#1AB7EA]/80 backdrop-blur-md text-white rounded-full text-[10px] font-bold">
-                  Vimeo
-                </span>
-              )}
-            </div>
-            <!-- Card body -->
-            <div class="p-6 flex flex-col flex-1 justify-between">
-              <div>
-                <h4 class="font-headline-md text-headline-md text-on-background mb-2">{v.title}</h4>
-                <p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4">{v.desc}</p>
-              </div>
-              <a
-                href={v.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-primary font-label-md text-label-md inline-flex items-center gap-1 hover:underline"
-              >
-                Watch Video
-                <span class="material-symbols-outlined text-[18px]">open_in_new</span>
-              </a>
-            </div>
-          </div>
-        ))}
-      </div>
+        <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+        Browse All on Cookidoo®
+      </a>
     </div>
   </section>
 
-  <script is:inline>
-    const carousel = document.getElementById('video-carousel');
-    document.getElementById('carousel-prev')?.addEventListener('click', () => {
-      carousel.scrollBy({ left: -340, behavior: 'smooth' });
-    });
-    document.getElementById('carousel-next')?.addEventListener('click', () => {
-      carousel.scrollBy({ left: 340, behavior: 'smooth' });
-    });
-  </script>
+  <!-- ─── Sticky Filter Bar ─────────────────────────────────────────── -->
+  <div class="sticky top-[64px] z-40 bg-surface/95 backdrop-blur-md border-b border-outline-variant/20 py-3 px-margin-desktop">
+    <div class="max-w-container-max mx-auto flex flex-col gap-3">
 
-  <!-- ─── More to Watch ────────────────────────────────────────────── -->
-  <section class="py-16 bg-surface-container-low">
-    <div class="max-w-container-max mx-auto px-margin-desktop">
-      <div class="flex items-center justify-between mb-stack-lg">
-        <div>
-          <h2 class="font-headline-lg text-headline-lg">More to Watch</h2>
-          <p class="font-body-md text-body-md text-on-surface-variant mt-1">Curated playlists — from pro chef techniques to quick weeknight hacks</p>
-        </div>
-        <div class="hidden md:flex gap-3">
-          <button id="playlist-prev" aria-label="Scroll left"
-            class="w-12 h-12 rounded-full border-2 border-outline-variant flex items-center justify-center hover:bg-surface-container transition-colors">
-            <span class="material-symbols-outlined">chevron_left</span>
-          </button>
-          <button id="playlist-next" aria-label="Scroll right"
-            class="w-12 h-12 rounded-full border-2 border-outline-variant flex items-center justify-center hover:bg-surface-container transition-colors">
-            <span class="material-symbols-outlined">chevron_right</span>
-          </button>
-        </div>
+      <!-- Search -->
+      <div class="relative max-w-sm">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px] pointer-events-none">search</span>
+        <input
+          id="recipe-search"
+          type="search"
+          placeholder="Search recipes…"
+          class="w-full pl-10 pr-4 py-2 rounded-xl border border-outline-variant bg-surface-container-lowest font-body-md text-body-md text-on-background focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+        />
       </div>
 
-      <div id="playlist-carousel" class="flex gap-gutter overflow-x-auto pb-4 no-scrollbar snap-x snap-mandatory" style="scroll-behavior: smooth;">
-        {[
-          { thumbId: "LtT8BVsfpGU", title: "Pro Chefs & Thermomix®",      desc: "See how professional chefs use the Thermomix® in their kitchens.", url: "https://youtube.com/playlist?list=PLSN5HT4ulT6m24e7wgdsEwb_l1EuPprUI5", tag: "Inspiration" },
-          { thumbId: "QBCnLbm4TS4", title: "5-Day Challenge",              desc: "Daily challenges to build your Thermomix® confidence, fast.",      url: "https://youtube.com/playlist?list=PLSN5HT4ulT6k7su_3R_JTarZ88MXkH1z1", tag: "Beginner" },
-          { thumbId: "0KkT2PEbh48", title: "Learn More About Thermomix®", desc: "Curious about what it can really do? Start here.",                 url: "https://youtube.com/playlist?list=PLSN5HT4ulT6lr_wABe1djGbjoH2tIR5K2", tag: "Overview" },
-          { thumbId: "4rEZB843eho", title: "Quick Recipes",                desc: "Delicious meals ready in 30 minutes or less.",                     url: "https://youtube.com/playlist?list=PLSN5HT4ulT6n89lAQX240QDn7hzJTS2s2", tag: "Quick Wins" },
-          { thumbId: "OBoiZP4I6lo", title: "Quick Hacks",                  desc: "Time-saving tricks every Thermomix® owner should know.",           url: "https://youtube.com/playlist?list=PLSN5HT4ulT6kAWAU4s2MsRRKCuQLcZfK6", tag: "Tips & Tricks" },
-          { thumbId: "di2Y1-27ZAw", title: "Live Cooking Sessions",         desc: "Recorded Zoom cooking sessions with the community.",               url: "https://youtube.com/playlist?list=PLSN5HT4ulT6lXMPvFfqbra_9q5wHO788-", tag: "Community" },
-        ].map(pl => (
-          <div class="min-w-[300px] md:min-w-[320px] snap-start bg-white rounded-2xl overflow-hidden recipe-card-shadow flex flex-col">
-            <div class="relative aspect-video bg-surface-container overflow-hidden group">
-              <img
-                src={`https://img.youtube.com/vi/${pl.thumbId}/hqdefault.jpg`}
-                alt={pl.title}
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors">
-                <div class="w-14 h-14 rounded-full bg-primary text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                  <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">play_arrow</span>
-                </div>
-              </div>
-              <span class="absolute top-3 left-3 px-3 py-1 bg-black/60 backdrop-blur-md text-white rounded-full text-[10px] font-bold uppercase tracking-wider">
-                {pl.tag}
-              </span>
-            </div>
-            <div class="p-6 flex flex-col flex-1 justify-between">
-              <div>
-                <h4 class="font-headline-md text-headline-md text-on-background mb-2">{pl.title}</h4>
-                <p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4">{pl.desc}</p>
-              </div>
-              <a href={pl.url} target="_blank" rel="noopener noreferrer"
-                 class="text-primary font-label-md text-label-md inline-flex items-center gap-1 hover:underline">
-                Watch Playlist
-                <span class="material-symbols-outlined text-[18px]">open_in_new</span>
-              </a>
-            </div>
-          </div>
+      <!-- Category pills — horizontal scroll on mobile -->
+      <div class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
+        {categories.map((cat, i) => (
+          <button
+            data-filter={cat}
+            class={`filter-pill shrink-0 px-4 py-1.5 rounded-full font-label-md text-label-md border transition-all whitespace-nowrap ${i === 0 ? 'bg-primary text-on-primary border-primary' : 'bg-surface-container-low text-on-surface-variant border-outline-variant hover:border-primary hover:text-primary'}`}
+          >
+            {cat}
+          </button>
         ))}
       </div>
     </div>
-  </section>
+  </div>
 
-  <script is:inline>
-    const pc = document.getElementById('playlist-carousel');
-    document.getElementById('playlist-prev')?.addEventListener('click', () => pc.scrollBy({ left: -340, behavior: 'smooth' }));
-    document.getElementById('playlist-next')?.addEventListener('click', () => pc.scrollBy({ left:  340, behavior: 'smooth' }));
-  </script>
+  <!-- ─── Recipe Grid ───────────────────────────────────────────────── -->
+  <section class="py-8 px-margin-desktop max-w-container-max mx-auto">
+    <p id="recipe-count" class="font-label-md text-label-md text-on-surface-variant mb-6">
+      Showing all {recipes.length} recipes
+    </p>
+
+    <div id="recipe-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
+      {recipes.map(r => (
+        <a
+          href={r.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-category={r.category}
+          data-name={r.name.toLowerCase()}
+          class="recipe-card group bg-white rounded-2xl overflow-hidden recipe-card-shadow hover:-translate-y-1 transition-transform duration-300 flex flex-col"
+        >
+          <!-- Image -->
+          <div class="aspect-[4/3] overflow-hidden bg-surface-container-low">
+            <img
+              src={r.img}
+              alt={r.name}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+            />
+          </div>
+          <!-- Body -->
+          <div class="p-4 flex flex-col flex-1">
+            <span
+              class="self-start text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full mb-2 leading-5"
+              style={categoryStyle[r.category]}
+            >
+              {r.category}
+            </span>
+            <h3 class="font-label-md text-label-md text-on-background leading-snug flex-1 mb-3">{r.name}</h3>
+            <div class="flex items-center gap-1 text-primary text-[12px] font-semibold">
+              View on Cookidoo®
+              <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- Empty state -->
+    <div id="no-results" class="hidden text-center py-24">
+      <span class="material-symbols-outlined text-5xl text-on-surface-variant mb-4 block">search_off</span>
+      <p class="font-headline-md text-headline-md text-on-surface-variant mb-2">No recipes found</p>
+      <p class="font-body-md text-on-surface-variant">Try a different search term or select another category.</p>
+      <button id="reset-btn" class="mt-6 px-6 py-2 border border-primary text-primary rounded-full font-label-md hover:bg-primary hover:text-on-primary transition-all">
+        Show all recipes
+      </button>
+    </div>
+  </section>
 
 </BaseLayout>
+
+<script is:inline>
+  let activeCategory = 'All';
+  let searchTerm = '';
+
+  const cards     = document.querySelectorAll('.recipe-card');
+  const pills     = document.querySelectorAll('.filter-pill');
+  const countEl   = document.getElementById('recipe-count');
+  const noResults = document.getElementById('no-results');
+  const searchEl  = document.getElementById('recipe-search');
+  const resetBtn  = document.getElementById('reset-btn');
+  const total     = cards.length;
+
+  function applyFilter() {
+    let visible = 0;
+    cards.forEach(card => {
+      const cat  = card.dataset.category;
+      const name = card.dataset.name || '';
+      const catOk  = activeCategory === 'All' || cat === activeCategory;
+      const nameOk = !searchTerm || name.includes(searchTerm);
+      const show = catOk && nameOk;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+
+    if (visible === total && !searchTerm) {
+      countEl.textContent = `Showing all ${total} recipes`;
+    } else {
+      countEl.textContent = `Showing ${visible} of ${total} recipes`;
+    }
+
+    noResults.classList.toggle('hidden', visible > 0);
+  }
+
+  function setCategory(cat) {
+    activeCategory = cat;
+    pills.forEach(p => {
+      const active = p.dataset.filter === cat;
+      p.classList.toggle('bg-primary',              active);
+      p.classList.toggle('text-on-primary',         active);
+      p.classList.toggle('border-primary',          active);
+      p.classList.toggle('bg-surface-container-low',!active);
+      p.classList.toggle('text-on-surface-variant', !active);
+      p.classList.toggle('border-outline-variant',  !active);
+    });
+    applyFilter();
+  }
+
+  pills.forEach(p => p.addEventListener('click', () => setCategory(p.dataset.filter)));
+
+  searchEl?.addEventListener('input', e => {
+    searchTerm = e.target.value.toLowerCase().trim();
+    applyFilter();
+  });
+
+  resetBtn?.addEventListener('click', () => {
+    searchTerm = '';
+    searchEl.value = '';
+    setCategory('All');
+  });
+</script>

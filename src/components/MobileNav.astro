@@ -12,8 +12,8 @@ const { activePage = '' } = Astro.props;
     <span class="text-[10px] font-label-md">Home</span>
   </a>
 
-  <a href="/recipes" class={`flex flex-col items-center gap-1 ${activePage === 'recipes' ? 'text-primary' : 'text-on-surface-variant'}`}>
-    <span class="material-symbols-outlined" style={activePage === 'recipes' ? "font-variation-settings:'FILL' 1" : ""}>restaurant</span>
+  <a href="/recipes" class={`flex flex-col items-center gap-1 ${activePage === 'recipes' || activePage === 'resources' ? 'text-primary' : 'text-on-surface-variant'}`}>
+    <span class="material-symbols-outlined" style={activePage === 'recipes' || activePage === 'resources' ? "font-variation-settings:'FILL' 1" : ""}>restaurant</span>
     <span class="text-[10px] font-label-md">Recipes</span>
   </a>
 
@@ -30,7 +30,7 @@ const { activePage = '' } = Astro.props;
 
   <a href="/thermomix" class={`flex flex-col items-center gap-1 ${activePage === 'thermomix' ? 'text-primary' : 'text-on-surface-variant'}`}>
     <span class="material-symbols-outlined" style={activePage === 'thermomix' ? "font-variation-settings:'FILL' 1" : ""}>kitchen</span>
-    <span class="text-[10px] font-label-md">TM6</span>
+    <span class="text-[10px] font-label-md">TM7</span>
   </a>
 
   <a href="/about" class={`flex flex-col items-center gap-1 ${activePage === 'about' ? 'text-primary' : 'text-on-surface-variant'}`}>
