@@ -5,12 +5,13 @@ interface Props {
 const { compact = false } = Astro.props;
 ---
 
-<!-- PLACEHOLDER: Replace action URL with Mailchimp embed action when Taina provides it -->
 <form
-  action="#mailchimp-placeholder"
+  action="https://thermotaina.us14.list-manage.com/subscribe/post?u=429998365501c54e1d129e323&amp;id=b0a921dbbb&amp;f_id=004fb5e5f0"
   method="POST"
+  id="mc-embedded-subscribe-form"
+  name="mc-embedded-subscribe-form"
   class={compact ? 'flex flex-col gap-2' : 'flex gap-2 w-full max-w-lg'}
-  onsubmit="handleNewsletterSubmit(event)"
+  target="_blank"
 >
   <input
     type="email"
@@ -19,23 +20,26 @@ const { compact = false } = Astro.props;
     placeholder="Your email address"
     class={`${compact ? 'w-full' : 'flex-1'} bg-surface border-none rounded-xl px-6 py-3 font-body-md text-on-surface placeholder:text-on-surface-variant/60 focus:ring-2 focus:ring-primary/20 focus:outline-none`}
   />
+  <!-- Honeypot field (anti-bot) -->
+  <div aria-hidden="true" style="position: absolute; left: -5000px;">
+    <input type="text" name="b_429998365501c54e1d129e323_b0a921dbbb" tabindex="-1" value="">
+  </div>
   <button
     type="submit"
+    id="mc-embedded-subscribe"
     class={`${compact ? 'w-full' : ''} bg-primary text-on-primary px-6 py-3 rounded-xl font-label-md text-label-md hover:brightness-110 active:scale-95 transition-all`}
   >
     Subscribe
   </button>
 </form>
 
+<script src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
 <script is:inline>
-  function handleNewsletterSubmit(e) {
-    e.preventDefault();
-    // TODO: Replace with real Mailchimp form submission once embed code is provided
-    const form = e.target;
-    const btn  = form.querySelector('button[type="submit"]');
-    if (btn) {
-      btn.textContent = '✓ You\'re on the list!';
-      btn.disabled = true;
-    }
-  }
+  (function($) {
+    window.fnames = new Array();
+    window.ftypes = new Array();
+    fnames[0] = 'EMAIL';
+    ftypes[0] = 'email';
+  }(jQuery));
+  var $mcj = jQuery.noConflict(true);
 </script>
