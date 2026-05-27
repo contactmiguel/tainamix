@@ -35,6 +35,9 @@ const { compact = false } = Astro.props;
     >
       Subscribe
     </button>
+    <div id="mc-success-message" style="display:none;" class={`${compact ? 'w-full' : ''} bg-primary text-on-primary px-6 py-3 rounded-xl font-label-md text-label-md text-center`}>
+      ✓ You're on the list!
+    </div>
   </div>
 </form>
 
@@ -48,4 +51,20 @@ const { compact = false } = Astro.props;
     fnames[2]='LNAME';ftypes[2]='text';
 }(jQuery));
 var $mcj = jQuery.noConflict(true);
+
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('mc-embedded-subscribe-form');
+  if (!form) return;
+
+  form.addEventListener('submit', function(e) {
+    const button = document.getElementById('mc-embedded-subscribe');
+    const successMsg = document.getElementById('mc-success-message');
+    const email = document.getElementById('mce-EMAIL');
+
+    if (button && successMsg && email.value) {
+      button.style.display = 'none';
+      successMsg.style.display = 'block';
+    }
+  });
+});
 </script>
