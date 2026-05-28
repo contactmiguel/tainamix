@@ -52,19 +52,19 @@ const { compact = false } = Astro.props;
 }(jQuery));
 var $mcj = jQuery.noConflict(true);
 
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('mc-embedded-subscribe-form');
-  if (!form) return;
+setTimeout(() => {
+  const button = document.getElementById('mc-embedded-subscribe');
+  if (!button) return;
 
-  form.addEventListener('submit', function(e) {
-    const button = document.getElementById('mc-embedded-subscribe');
-    const successMsg = document.getElementById('mc-success-message');
+  button.addEventListener('click', function(e) {
     const email = document.getElementById('mce-EMAIL');
-
-    if (button && successMsg && email.value) {
-      button.style.display = 'none';
-      successMsg.style.display = 'block';
+    if (email && email.value) {
+      const successMsg = document.getElementById('mc-success-message');
+      if (successMsg) {
+        button.style.display = 'none';
+        successMsg.style.display = 'block';
+      }
     }
   });
-});
+}, 100);
 </script>
