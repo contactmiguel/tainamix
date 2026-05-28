@@ -30,7 +30,7 @@ const { compact = false } = Astro.props;
       value="Subscribe"
       name="subscribe"
       id="mc-embedded-subscribe"
-      onclick="showNewsletterSuccess()"
+      onclick="showNewsletterSuccess(event)"
       class={`${compact ? 'w-full' : ''} bg-primary text-on-primary px-6 py-3 rounded-xl font-label-md text-label-md hover:brightness-110 active:scale-95 transition-all`}
     >
       Subscribe
@@ -43,14 +43,19 @@ const { compact = false } = Astro.props;
 
 <script defer src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
 <script is:inline>
-function showNewsletterSuccess() {
+function showNewsletterSuccess(e) {
+  e.preventDefault();
   const email = document.getElementById('mce-EMAIL');
   if (email && email.value) {
     const button = document.getElementById('mc-embedded-subscribe');
     const successMsg = document.getElementById('mc-success-message');
+    const form = document.getElementById('mc-embedded-subscribe-form');
     if (button && successMsg) {
       button.style.display = 'none';
       successMsg.style.display = 'block';
+      if (form) {
+        form.submit();
+      }
     }
   }
 }
