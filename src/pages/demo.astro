@@ -91,17 +91,19 @@ import NewsletterBar from '../components/NewsletterBar.astro';
         </div>
 
         <form
-          id="demo-form"
-          action="https://formspree.io/f/xlgvbyvz"
+          id="mc-embedded-subscribe-form"
+          name="mc-embedded-subscribe-form"
+          action="https://thermotaina.us14.list-manage.com/subscribe/post?u=429998365501c54e1d129e323&id=b0a921dbbb&f_id=0073b5e5f0"
           method="POST"
           class="space-y-stack-md"
+          novalidate
         >
           <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
             <div class="space-y-2">
-              <label class="font-label-md text-label-md text-on-surface-variant ml-1" for="name">Full Name</label>
+              <label class="font-label-md text-label-md text-on-surface-variant ml-1" for="mce-FNAME">Full Name</label>
               <input
-                id="name"
-                name="name"
+                id="mce-FNAME"
+                name="FNAME"
                 type="text"
                 required
                 placeholder="Your Name"
@@ -109,10 +111,10 @@ import NewsletterBar from '../components/NewsletterBar.astro';
               />
             </div>
             <div class="space-y-2">
-              <label class="font-label-md text-label-md text-on-surface-variant ml-1" for="email">Email Address</label>
+              <label class="font-label-md text-label-md text-on-surface-variant ml-1" for="mce-EMAIL">Email Address</label>
               <input
-                id="email"
-                name="email"
+                id="mce-EMAIL"
+                name="EMAIL"
                 type="email"
                 required
                 placeholder="hello@example.com"
@@ -123,29 +125,29 @@ import NewsletterBar from '../components/NewsletterBar.astro';
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
             <div class="space-y-2">
-              <label class="font-label-md text-label-md text-on-surface-variant ml-1" for="interest">Interest</label>
+              <label class="font-label-md text-label-md text-on-surface-variant ml-1" for="mce-MMERGE5">Interest</label>
               <select
-                id="interest"
-                name="interest"
+                id="mce-MMERGE5"
+                name="MMERGE5"
                 required
                 class="w-full bg-surface-container-low border-none rounded-xl p-4 font-body-md text-on-surface focus:ring-2 focus:ring-primary/20 focus:outline-none appearance-none"
               >
                 <option value="" disabled selected>Select a topic ▾</option>
-                <option value="in-person">In-Person Cooking Party (LA Area)</option>
-                <option value="virtual">Virtual Demo (Worldwide)</option>
-                <option value="support">Support / Question</option>
-                <option value="consultant">Consultant Program</option>
+                <option value="Virtual Demo">Virtual Demo</option>
+                <option value="In-Person Demo">In-Person Demo</option>
+                <option value="Cooking Party">Cooking Party</option>
+                <option value="Other">Other</option>
               </select>
             </div>
             <div class="space-y-2">
               <label class="font-label-md text-label-md text-on-surface-variant ml-1">Language Preference</label>
               <div class="flex gap-3 p-2 bg-surface-container-low rounded-xl">
                 <label class="flex-1 cursor-pointer">
-                  <input checked name="_lang" type="radio" value="English" class="hidden peer" />
+                  <input checked name="MMERGE6" type="radio" value="English" class="hidden peer" />
                   <div class="text-center py-2 rounded-lg peer-checked:bg-white peer-checked:shadow-sm font-label-md text-label-md transition-all">English</div>
                 </label>
                 <label class="flex-1 cursor-pointer">
-                  <input name="_lang" type="radio" value="Deutsch" class="hidden peer" />
+                  <input name="MMERGE6" type="radio" value="Deutsch" class="hidden peer" />
                   <div class="text-center py-2 rounded-lg peer-checked:bg-white peer-checked:shadow-sm font-label-md text-label-md transition-all">Deutsch</div>
                 </label>
               </div>
@@ -153,24 +155,28 @@ import NewsletterBar from '../components/NewsletterBar.astro';
           </div>
 
           <div class="space-y-2">
-            <label class="font-label-md text-label-md text-on-surface-variant ml-1" for="message">Message</label>
+            <label class="font-label-md text-label-md text-on-surface-variant ml-1" for="mce-MMERGE7">Message</label>
             <textarea
-              id="message"
-              name="message"
+              id="mce-MMERGE7"
+              name="MMERGE7"
               rows="4"
+              required
               placeholder="Tell me about your kitchen goals..."
               class="w-full bg-surface-container-low border-none rounded-xl p-4 font-body-md text-on-surface placeholder:text-on-surface-variant/60 focus:ring-2 focus:ring-primary/20 focus:outline-none resize-none"
             ></textarea>
           </div>
 
-          <!-- Formspree hidden fields -->
-          <input type="hidden" name="_subject" value="New Demo Request from TainaMix.com" />
-          <input type="text" name="_gotcha" class="hidden" />
+          <!-- Mailchimp anti-spam honeypot -->
+          <div aria-hidden="true" style="position: absolute; left: -5000px;">
+            <input type="text" name="b_429998365501c54e1d129e323_b0a921dbbb" tabindex="-1" value="">
+          </div>
 
           <div class="flex items-center gap-4 flex-wrap">
             <button
-              id="demo-submit"
+              id="mc-embedded-subscribe"
+              name="subscribe"
               type="submit"
+              onclick="handleDemoFormSubmit(event)"
               class="px-12 py-4 bg-primary text-on-primary rounded-xl font-headline-md shadow-lg hover:brightness-110 active:scale-95 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
             >
               Send Message
@@ -362,39 +368,37 @@ import NewsletterBar from '../components/NewsletterBar.astro';
     </div>
   </section>
 
+  <script defer src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
   <script is:inline>
-    const form    = document.getElementById('demo-form');
-    const success = document.getElementById('demo-success');
-    const submit  = document.getElementById('demo-submit');
-    const error   = document.getElementById('demo-error');
-
-    form?.addEventListener('submit', async (e) => {
+    function handleDemoFormSubmit(e) {
       e.preventDefault();
-      submit.disabled = true;
-      submit.textContent = 'Sending…';
-      error.classList.add('hidden');
+      const form = e.target.closest('form');
+      const email = form.querySelector('input[name="EMAIL"]');
+      const submit = form.querySelector('button[type="submit"]');
+      const success = document.getElementById('demo-success');
+      const error = document.getElementById('demo-error');
 
-      try {
-        const res = await fetch(form.action, {
+      if (email && email.value) {
+        submit.disabled = true;
+        submit.textContent = 'Sending…';
+        error.classList.add('hidden');
+
+        const formData = new FormData(form);
+        fetch(form.action, {
           method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (res.ok) {
-          form.classList.add('hidden');
-          success.classList.remove('hidden');
-        } else {
-          submit.disabled = false;
-          submit.textContent = 'Send Message';
-          error.classList.remove('hidden');
-        }
-      } catch {
-        submit.disabled = false;
-        submit.textContent = 'Send Message';
-        error.classList.remove('hidden');
+          body: formData
+        })
+          .then(() => {
+            form.classList.add('hidden');
+            success.classList.remove('hidden');
+          })
+          .catch(() => {
+            submit.disabled = false;
+            submit.textContent = 'Send Message';
+            error.classList.remove('hidden');
+          });
       }
-    });
+    }
   </script>
 
 </BaseLayout>
