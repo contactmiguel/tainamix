@@ -3,24 +3,23 @@ interface Props {
   compact?: boolean;
 }
 const { compact = false } = Astro.props;
-const uniqueId = Math.random().toString(36).substr(2, 9);
 ---
 
 <form
   action="https://thermotaina.us14.list-manage.com/subscribe/post?u=429998365501c54e1d129e323&id=b0a921dbbb&f_id=004fb5e5f0"
   method="POST"
-  id={`mc-embedded-subscribe-form-${uniqueId}`}
-  name={`mc-embedded-subscribe-form-${uniqueId}`}
+  id="mc-embedded-subscribe-form"
+  name="mc-embedded-subscribe-form"
   class="validate"
   novalidate
 >
-  <div id={`mc_embed_signup_scroll-${uniqueId}`} class={compact ? 'flex flex-col gap-2' : 'flex gap-2 w-full max-w-lg'}>
+  <div id="mc_embed_signup_scroll" class={compact ? 'flex flex-col gap-2' : 'flex gap-2 w-full max-w-lg'}>
     <input
       type="email"
       value=""
       name="EMAIL"
       class={`required email ${compact ? 'w-full' : 'flex-1'} bg-surface border-none rounded-xl px-6 py-3 font-body-md text-on-surface placeholder:text-on-surface-variant/60 focus:ring-2 focus:ring-primary/20 focus:outline-none`}
-      id={`mce-EMAIL-${uniqueId}`}
+      id="mce-EMAIL"
       placeholder="Your email address"
     />
     <div aria-hidden="true" style="position: absolute; left: -5000px;">
@@ -30,13 +29,13 @@ const uniqueId = Math.random().toString(36).substr(2, 9);
       type="submit"
       value="Subscribe"
       name="subscribe"
-      id={`mc-embedded-subscribe-${uniqueId}`}
-      onclick={`showNewsletterSuccess(event, '${uniqueId}')`}
+      id="mc-embedded-subscribe"
+      onclick="showNewsletterSuccess(event)"
       class={`${compact ? 'w-full' : ''} bg-primary text-on-primary px-6 py-3 rounded-xl font-label-md text-label-md hover:brightness-110 active:scale-95 transition-all`}
     >
       Subscribe
     </button>
-    <div id={`mc-success-message-${uniqueId}`} style="display:none;" class={`${compact ? 'w-full' : ''} bg-primary text-on-primary px-6 py-3 rounded-xl font-label-md text-label-md text-center`}>
+    <div id="mc-success-message" style="display:none;" class={`${compact ? 'w-full' : ''} bg-primary text-on-primary px-6 py-3 rounded-xl font-label-md text-label-md text-center`}>
       You have been added to our list.
     </div>
   </div>
@@ -44,14 +43,16 @@ const uniqueId = Math.random().toString(36).substr(2, 9);
 
 <script defer src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
 <script is:inline>
-function showNewsletterSuccess(e, uniqueId) {
+function showNewsletterSuccess(e) {
   e.preventDefault();
-  const email = document.getElementById(`mce-EMAIL-${uniqueId}`);
+  const form = e.target.closest('form');
+  const email = form.querySelector('input[name="EMAIL"]');
+
   if (email && email.value) {
-    const button = document.getElementById(`mc-embedded-subscribe-${uniqueId}`);
-    const successMsg = document.getElementById(`mc-success-message-${uniqueId}`);
-    const form = document.getElementById(`mc-embedded-subscribe-form-${uniqueId}`);
-    if (button && successMsg && form) {
+    const button = form.querySelector('button[type="submit"]');
+    const successMsg = form.querySelector('[id="mc-success-message"]');
+
+    if (button && successMsg) {
       button.style.display = 'none';
       successMsg.style.display = 'block';
 
