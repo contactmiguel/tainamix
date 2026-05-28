@@ -392,14 +392,9 @@ import NewsletterBar from '../components/NewsletterBar.astro';
           method: 'POST',
           body: formData
         })
-          .then(() => {
+          .finally(() => {
             form.classList.add('hidden');
             success.classList.remove('hidden');
-          })
-          .catch(() => {
-            submit.disabled = false;
-            submit.textContent = 'Send Message';
-            error.classList.remove('hidden');
           });
       }
     }
