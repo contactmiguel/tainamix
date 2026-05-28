@@ -59,11 +59,24 @@ function showNewsletterSuccess(e) {
       button.style.display = 'none';
       successMsg.style.display = 'block';
 
-      const formData = new FormData(form);
-      fetch(form.action, {
-        method: 'POST',
-        body: formData
-      }).catch(() => {});
+      // Use hidden iframe to avoid CORS issues
+      const iframeName = 'mailchimp-' + Date.now() + '-' + Math.random();
+      const iframe = document.createElement('iframe');
+      iframe.name = iframeName;
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+
+      const formClone = form.cloneNode(true);
+      formClone.target = iframeName;
+      formClone.style.display = 'none';
+      document.body.appendChild(formClone);
+
+      formClone.submit();
+
+      setTimeout(() => {
+        document.body.removeChild(iframe);
+        document.body.removeChild(formClone);
+      }, 1000);
     }
   }
 }
