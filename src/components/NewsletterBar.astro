@@ -31,18 +31,31 @@ const { compact = false } = Astro.props;
       value="Subscribe"
       name="subscribe"
       id="mc-embedded-subscribe"
+      onclick="showNewsletterSuccess()"
       class={`${compact ? 'w-full' : ''} bg-primary text-on-primary px-6 py-3 rounded-xl font-label-md text-label-md hover:brightness-110 active:scale-95 transition-all`}
     >
       Subscribe
     </button>
     <div id="mc-success-message" style="display:none;" class={`${compact ? 'w-full' : ''} bg-primary text-on-primary px-6 py-3 rounded-xl font-label-md text-label-md text-center`}>
-      ✓ You're on the list!
+      You have been added to our list.
     </div>
   </div>
 </form>
 
 <script defer src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
 <script is:inline>
+function showNewsletterSuccess() {
+  const email = document.getElementById('mce-EMAIL');
+  if (email && email.value) {
+    const button = document.getElementById('mc-embedded-subscribe');
+    const successMsg = document.getElementById('mc-success-message');
+    if (button && successMsg) {
+      button.style.display = 'none';
+      successMsg.style.display = 'block';
+    }
+  }
+}
+
 (function($) {
     window.fnames = new Array();
     window.ftypes = new Array();
@@ -51,20 +64,4 @@ const { compact = false } = Astro.props;
     fnames[2]='LNAME';ftypes[2]='text';
 }(jQuery));
 var $mcj = jQuery.noConflict(true);
-
-setTimeout(() => {
-  const button = document.getElementById('mc-embedded-subscribe');
-  if (!button) return;
-
-  button.addEventListener('click', function(e) {
-    const email = document.getElementById('mce-EMAIL');
-    if (email && email.value) {
-      const successMsg = document.getElementById('mc-success-message');
-      if (successMsg) {
-        button.style.display = 'none';
-        successMsg.style.display = 'block';
-      }
-    }
-  });
-}, 100);
 </script>
