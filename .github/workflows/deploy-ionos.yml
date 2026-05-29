@@ -20,9 +20,10 @@ jobs:
           npm install
           npm run build
       
-      - name: Deploy to IONOS via SFTP
+      - name: Deploy to IONOS via FTP
         run: |
-          apt-get update && apt-get install -y rsync sshpass
-          mkdir -p ~/.ssh
-          ssh-keyscan -p 22 home626242321.1and1-data.host >> ~/.ssh/known_hosts 2>/dev/null
-          sshpass -p '${{ secrets.IONOS_PASSWORD }}' rsync -rvz --delete -e 'ssh -p 22' ./dist/ u85031456@home626242321.1and1-data.host:/tainamix_new/
+          cd ./dist
+          find . -type f | while read file; do
+            dir=$(dirname "$file")
+            curl -u u85031456:${{ secrets.IONOS_PASSWORD }} --create-dirs -T "$file" ftp://home626242321.1and1-data.host/tainamix_new/$file
+          done
