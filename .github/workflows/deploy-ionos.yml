@@ -23,4 +23,6 @@ jobs:
       - name: Deploy to IONOS via SFTP
         run: |
           apt-get update && apt-get install -y rsync sshpass
-          sshpass -p '${{ secrets.IONOS_PASSWORD }}' rsync -rvz --delete -e 'ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null' ./dist/ u85031456@home626242321.1and1-data.host:/tainamix_new/
+          mkdir -p ~/.ssh
+          ssh-keyscan -p 22 home626242321.1and1-data.host >> ~/.ssh/known_hosts 2>/dev/null
+          sshpass -p '${{ secrets.IONOS_PASSWORD }}' rsync -rvz --delete -e 'ssh -p 22' ./dist/ u85031456@home626242321.1and1-data.host:/tainamix_new/
