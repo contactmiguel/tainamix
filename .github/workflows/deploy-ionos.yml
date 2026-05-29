@@ -21,12 +21,6 @@ jobs:
           npm run build
       
       - name: Deploy to IONOS via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-        with:
-          server: home626242321.1and1-data.host
-          username: u85031456
-          password: ${{ secrets.IONOS_PASSWORD }}
-          local_dir: './dist'
-          remote_dir: '/tainamix_new'
-          delete: 'false'
-          port: 22
+        run: |
+          apt-get update && apt-get install -y lftp
+          lftp -e "set sftp:auto-confirm yes; set ssl:verify-certificate no; open -u u85031456,${{ secrets.IONOS_PASSWORD }} sftp://home626242321.1and1-data.host; mirror -R ./dist /tainamix_new; quit"
