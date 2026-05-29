@@ -20,12 +20,12 @@ jobs:
           npm install
           npm run build
       
-      - name: Deploy to IONOS
-        uses: easingthemes/ssh-deploy@main
+      - name: Deploy to IONOS via SFTP
+        uses: SamKirkland/FTP-Deploy-Action@4.3.4
         with:
-          SSH_PRIVATE_KEY: ${{ secrets.IONOS_SSH_KEY }}
-          REMOTE_HOST: ${{ secrets.IONOS_HOST }}
-          REMOTE_USER: ${{ secrets.IONOS_USER }}
-          TARGET: /tainamix_new/
-          SOURCE: "dist/"
-          ARGS: "-rltgoDzvO --delete"
+          server: home626242321.1and1-data.host
+          username: u85031456
+          password: ${{ secrets.IONOS_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: /tainamix_new/
+          protocol: sftp
