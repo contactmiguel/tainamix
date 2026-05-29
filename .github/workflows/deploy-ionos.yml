@@ -21,11 +21,11 @@ jobs:
           npm run build
       
       - name: Deploy to IONOS via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@4.3.4
+        uses: milansobota/action-sftp-upload@master
         with:
-          server: home626242321.1and1-data.host
+          host: home626242321.1and1-data.host
+          port: 22
           username: u85031456
           password: ${{ secrets.IONOS_PASSWORD }}
-          local-dir: ./dist/
-          server-dir: /tainamix_new/
-          protocol: sftp
+          local_dir: './dist/*'
+          remote_dir: '/tainamix_new'
