@@ -22,5 +22,11 @@ jobs:
       
       - name: Deploy to IONOS via SFTP
         run: |
-          apt-get update && apt-get install -y lftp
-          lftp -e "set sftp:auto-confirm yes; set ssl:verify-certificate no; open -u u85031456,${{ secrets.IONOS_PASSWORD }} sftp://home626242321.1and1-data.host; mirror -R ./dist /tainamix_new; quit"
+          apt-get update && apt-get install -y sshpass
+          sshpass -p '${{ secrets.IONOS_PASSWORD }}' sftp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null << 'SFTP_EOF'
+          open sftp://u85031456@home626242321.1and1-data.host
+          cd /tainamix_new
+          lcd ./dist
+          mput -r *
+          quit
+          SFTP_EOF
