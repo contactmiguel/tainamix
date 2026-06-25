@@ -1,6 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import NewsletterBar from '../components/NewsletterBar.astro';
+
+// Featured YouTube content for the homepage teaser — easily swappable.
+// IDs match videos already catalogued on the Resources page.
+const featuredVideos = [
+  { id: "o4xr6xRMcc4", title: "Welcome to the Community",     desc: "Meet Taina and start your TainaMix journey.",          url: "https://youtu.be/o4xr6xRMcc4",                                          color: "bg-primary" },
+  { id: "jv08iKa6VPM", title: "Your First Dish: Tomato Soup", desc: "Cook along for your very first Thermomix® meal.",      url: "https://youtu.be/jv08iKa6VPM",                                          color: "bg-tertiary" },
+  { id: "4rEZB843eho", title: "Quick Recipes",                desc: "Delicious meals ready in 30 minutes or less.",        url: "https://youtube.com/playlist?list=PLSN5HT4ulT6n89lAQX240QDn7hzJTS2s2",   color: "bg-secondary" },
+];
 ---
 
 <BaseLayout
@@ -34,8 +42,8 @@ import NewsletterBar from '../components/NewsletterBar.astro';
           <a href="/demo" class="bg-primary px-8 py-4 rounded-xl text-on-primary font-headline-md flex items-center gap-2 hover:brightness-110 transition-all shadow-lg">
             Book a Demo <span class="material-symbols-outlined">arrow_forward</span>
           </a>
-          <a href="/recipes" class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-xl font-headline-md hover:bg-white/20 transition-colors">
-            See Recipes
+          <a href="https://shop.thermomix.com/consultant/100096" target="_blank" rel="noopener noreferrer" class="bg-tertiary px-8 py-4 rounded-xl text-on-tertiary font-headline-md flex items-center gap-2 hover:brightness-110 transition-all shadow-lg">
+            Shop TM7&trade; Now <span class="material-symbols-outlined">shopping_cart</span>
           </a>
         </div>
       </div>
@@ -80,6 +88,70 @@ import NewsletterBar from '../components/NewsletterBar.astro';
           <p class="font-label-md text-label-md text-on-surface-variant">Bilingual Support</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ─── YouTube Teaser ────────────────────────────────────────────── -->
+  <section class="py-stack-lg px-margin-desktop max-w-container-max mx-auto">
+    <div class="text-center mb-stack-lg">
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#FF0000]/10 text-[#FF0000] rounded-full mb-stack-sm">
+        <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 shrink-0" aria-hidden="true">
+          <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/>
+        </svg>
+        <span class="font-label-md text-[12px] uppercase tracking-wider">Free Video Recipes</span>
+      </div>
+      <h2 class="font-headline-lg text-headline-lg mb-stack-sm">Come Cook With Me on YouTube</h2>
+      <p class="text-on-surface-variant max-w-2xl mx-auto">Pull up a chair in my kitchen! Free, step-by-step videos take you from unboxing your Thermomix® to weeknight dinners — with fresh recipes added all the time.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-stack-lg">
+      {featuredVideos.map((v) => (
+        <a
+          href={v.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group bg-surface-container-lowest rounded-2xl overflow-hidden recipe-card-shadow border border-outline-variant/30 flex flex-col"
+          aria-label={`Watch: ${v.title}`}
+        >
+          <div class="relative aspect-video bg-surface-container overflow-hidden">
+            <img
+              src={`https://img.youtube.com/vi/${v.id}/hqdefault.jpg`}
+              alt={v.title}
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/35 transition-colors">
+              <div class={`w-14 h-14 rounded-full ${v.color} text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
+                <span class="material-symbols-outlined text-2xl" style="font-variation-settings:'FILL' 1">play_arrow</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-headline-md text-headline-md mb-1">{v.title}</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant text-sm">{v.desc}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="flex flex-wrap justify-center items-center gap-stack-md">
+      <a
+        href="https://www.youtube.com/@tainamix"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-[#FF0000] px-8 py-4 rounded-xl text-white font-headline-md flex items-center gap-2 hover:brightness-110 transition-all shadow-lg"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 shrink-0" aria-hidden="true">
+          <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/>
+        </svg>
+        Subscribe on YouTube
+      </a>
+      <a
+        href="/resources#videos"
+        class="text-primary font-label-md text-label-md inline-flex items-center gap-1 hover:underline"
+      >
+        See all videos <span class="material-symbols-outlined">arrow_forward</span>
+      </a>
     </div>
   </section>
 
